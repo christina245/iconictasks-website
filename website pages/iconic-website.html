@@ -1,0 +1,2622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>iconic — reminders that actually motivate you</title>
+<link rel="icon" type="image/png" href="file:///Users/christina/IconicReminders/assets/images/favicon%201.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sauce+One:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   APP THEME FONTS — loaded from the local app bundle
+   ============================================================ */
+@font-face { font-family:'OpenSauceOne-Bold';    src:url('file:///Users/christina/IconicReminders/assets/fonts/OpenSauceOne-Bold.ttf'); }
+@font-face { font-family:'SpaceGrotesk-Bold';    src:url('file:///Users/christina/IconicReminders/assets/fonts/SpaceGrotesk-Bold.ttf'); }
+@font-face { font-family:'SpaceMono';            src:url('file:///Users/christina/IconicReminders/assets/fonts/SpaceMono-Regular.ttf'); }
+@font-face { font-family:'Oxanium-Bold';         src:url('file:///Users/christina/IconicReminders/assets/fonts/Oxanium-Bold.ttf'); }
+@font-face { font-family:'SourceSerif4-Black';   src:url('file:///Users/christina/IconicReminders/assets/fonts/SourceSerif4-Black.ttf'); }
+@font-face { font-family:'IBMPlexSans-Medium';   src:url('file:///Users/christina/IconicReminders/assets/fonts/IBMPlexSans-Medium.ttf'); }
+@font-face { font-family:'PaytoneOne-Regular';   src:url('file:///Users/christina/IconicReminders/assets/fonts/PaytoneOne-Regular.ttf'); }
+@font-face { font-family:'Fredoka-SemiBold';     src:url('file:///Users/christina/IconicReminders/assets/fonts/Fredoka-SemiBold.ttf'); }
+@font-face { font-family:'Mochibun';             src:url('file:///Users/christina/IconicReminders/assets/fonts/Mochibun-Regular.ttf'); }
+@font-face { font-family:'Quicksand-SemiBold';   src:url('file:///Users/christina/IconicReminders/assets/fonts/Quicksand-SemiBold.ttf'); }
+@font-face { font-family:'Sora-Bold';            src:url('file:///Users/christina/IconicReminders/assets/fonts/Sora-Bold.ttf'); }
+@font-face { font-family:'DMSans-Medium';        src:url('file:///Users/christina/IconicReminders/assets/fonts/DMSans-Medium.ttf'); }
+@font-face { font-family:'Saira-Bold';           src:url('file:///Users/christina/IconicReminders/assets/fonts/Saira-Bold.ttf'); }
+@font-face { font-family:'Oswald-SemiBold';      src:url('file:///Users/christina/IconicReminders/assets/fonts/Oswald-SemiBold.ttf'); }
+@font-face { font-family:'Cinzel-Bold';          src:url('file:///Users/christina/IconicReminders/assets/fonts/Cinzel-Bold.ttf'); }
+@font-face { font-family:'CormorantGaramond-SemiBold'; src:url('file:///Users/christina/IconicReminders/assets/fonts/CormorantGaramond-SemiBold.ttf'); }
+@font-face { font-family:'ArchivoBlack-Regular';      src:url('file:///Users/christina/IconicReminders/assets/fonts/ArchivoBlack-Regular.ttf'); }
+@font-face { font-family:'OpenSauceOne-Black';         src:url('file:///Users/christina/IconicReminders/assets/fonts/OpenSauceOne-Black.ttf'); }
+@font-face { font-family:'Fraunces';                   src:url('file:///Users/christina/IconicReminders/assets/fonts/Fraunces-VariableFont_SOFT%2CWONK%2Copsz%2Cwght.ttf'); font-weight:600; }
+@font-face { font-family:'Karla-Bold';                 src:url('file:///Users/christina/IconicReminders/assets/fonts/Karla-VariableFont_wght.ttf'); font-weight:700; }
+
+/* ============================================================
+   SITE DESIGN TOKENS
+   ============================================================ */
+:root {
+  --bg:           #210F3D;
+  --text:         #FFFFFF;
+  --accent:       #AE92FF;
+  --surface:      #2D1655;
+  --surface-2:    #3A1F6B;
+  --border:       rgba(255,255,255,0.12);
+  --text-muted:   rgba(255,255,255,0.72);
+  --text-faint:   rgba(255,255,255,0.45);
+
+  --radius-sm:    8px;
+  --radius-md:    12px;
+  --radius-lg:    20px;
+  --radius-btn:   15px;
+
+  --glow-sm:  0 0 10px rgba(127,82,255,0.55);
+  --glow-md:  0 0 18px rgba(127,82,255,0.55), 0 0 36px rgba(127,82,255,0.30);
+  --glow-lg:  0 0 24px rgba(127,82,255,0.65), 0 0 60px rgba(127,82,255,0.40), 0 0 120px rgba(127,82,255,0.20);
+
+  --container: 1280px;
+  --gutter:    1rem;
+}
+
+/* ============================================================
+   RESET + BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Open Sauce One', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4 { margin: 0; }
+p { margin: 0; }
+a { color: var(--text); }
+img { display: block; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+.h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+.label-eyebrow {
+  font-family: 'Open Sauce One', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  display: inline-block;
+}
+.p1 { font-weight: 900; }
+.glow-text {
+  text-shadow: 0 0 12px rgba(127,82,255,0.85), 0 0 28px rgba(127,82,255,0.55);
+}
+.glow-text--soft {
+  text-shadow: 0 0 8px rgba(127,82,255,0.55);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(33,15,61,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px var(--gutter);
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.nav-logo img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  transition: color 180ms, text-shadow 180ms;
+}
+.nav-links a:hover { color: var(--text); text-shadow: var(--glow-sm); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  font-family: 'Open Sauce One', sans-serif;
+  font-size: 15px;
+  border: 0;
+  cursor: pointer;
+  border-radius: var(--radius-btn);
+  padding: 11px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: box-shadow 180ms ease, transform 120ms ease;
+  text-decoration: none;
+}
+.btn-primary {
+  font-weight: 900;
+  background: #7F52FF;
+  color: #fff;
+}
+.btn-primary:hover { box-shadow: var(--glow-md); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-secondary {
+  font-weight: 400;
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid #7F52FF;
+}
+.btn-secondary:hover { background: rgba(127,82,255,0.12); box-shadow: var(--glow-sm); }
+
+/* Coming soon tooltip wrapper */
+.store-btn-wrap {
+  position: relative;
+  display: inline-block;
+}
+.store-btn-wrap .coming-soon-tip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-2);
+  border: 1px solid #7F52FF;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms;
+  box-shadow: var(--glow-sm);
+  color: white;
+}
+.store-btn-wrap:hover .coming-soon-tip { opacity: 1; }
+.store-btn-wrap img {
+  height: 52px;
+  cursor: default;
+  border-radius: var(--radius-sm);
+  transition: opacity 180ms;
+}
+.store-btn-wrap:hover img { opacity: 0.75; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 40px 0 48px;
+}
+.hero .container {
+  padding-left:  0;
+  padding-right: 0;
+}
+.hero-sub {
+  font-size: 1rem;
+  color: #FFFFFF;
+  line-height: 1.65;
+  margin: 20 0 2rem;
+}
+
+/* Phone stage: [left col] [phones] [theme panel] */
+.hero-stage {
+  display: grid;
+  grid-template-columns: 1.9fr auto 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+/* Invisible spacer preserving the right column where the panel used to live */
+.theme-panel-spacer {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ── Left: heading, subtitle, lockscreen preview ── */
+.lockscreen-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 530px;
+}
+.lockscreen-notif-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0.5rem;
+}
+.lockscreen-caption {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.55;
+  margin-top: 5px;
+  margin-right: 50px;
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+/* ── Right: theme panel ── */
+.theme-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  /* Desktop: fixed right sidebar — header aligned with "Previewing theme" label */
+  position: fixed;
+  top: 120px;
+  right: var(--gutter);
+  z-index: 100;
+  width: 200px;
+  max-height: calc(100vh - 136px);
+  overflow: visible;
+  transform: translateY(0);
+  transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-panel-header {
+  font-family: 'Open Sauce One', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: right;
+  margin: 0;
+}
+.theme-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 88px);
+  gap: 6px;
+  max-height: calc(100vh - 176px); /* viewport minus panel top (120px) + header (~28px) + gap (8px) + breathing room (20px) */
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 7px;
+  box-shadow: var(--glow-md);
+}
+
+/* Phone pair + label wrapper */
+.phone-pair-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.theme-preview-label {
+  font-family: 'Open Sauce One', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin: 0;
+}
+.phone-pair {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ============================================================
+   PHONE FRAME
+   ============================================================ */
+
+/* CSS variable defaults (Simple Light theme) */
+.phone-frame {
+  --ph-bg:          #FFFFFF;
+  --ph-card:        #FAFAFA;
+  --ph-accent:      #AE92FF;
+  --ph-text:        #0A0A0A;
+  --ph-muted:       #6B7280;
+  --ph-tabbar:      #FFFFFF;
+  --ph-check:       #10B981;
+  --ph-divider:     rgba(10,10,10,0.08);
+  --ph-accent-text: #FFFFFF;
+  --ph-tertiary:    #6B7280;
+  --ph-header-font: 'OpenSauceOne-Bold', system-ui;
+  --ph-sec-font:    'OpenSauceOne-Bold', system-ui;
+  --ph-dot-d:       #10B981;
+  --ph-dot-w:       #3B82F6;
+  --ph-dot-m:       #F59E0B;
+  --ph-btn1:        #8E63FF;
+  --ph-btn2:        #AE92FF;
+  --ph-sw3:         #6B7280;
+  --ph-card-border: transparent;
+
+  width: 270px;
+  height: 530px;
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  background: var(--ph-bg);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  flex-shrink: 0;
+  transition: box-shadow 300ms ease;
+}
+.phone-frame:hover {
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.65),
+    0 0 0 1px rgba(0,0,0,0.3),
+    0 0 0 3px rgba(127,82,255,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Background overlay (for image themes) */
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Phone inner screen */
+.phone-screen {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Status bar ── */
+.ph-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 10px 0;
+  height: 22px;
+  flex-shrink: 0;
+}
+.ph-status-time {
+  font-size: 8.5px;
+  font-weight: 700;
+  color: var(--ph-text);
+  letter-spacing: 0.2px;
+}
+.ph-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--ph-text);
+  font-size: 8px;
+}
+
+/* ── Header (month row + day picker / sort row) ── */
+.ph-header {
+  padding: 5px 8px 9px;
+  border-bottom: 1px solid var(--ph-divider);
+  flex-shrink: 0;
+}
+.ph-month-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.ph-month-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ph-month-text {
+  font-size: 12px;
+  font-family: var(--ph-header-font);
+  color: var(--ph-text);
+  font-weight: 700;
+}
+.ph-month-chevron {
+  display: flex;
+  align-items: center;
+  color: var(--ph-accent);
+}
+.ph-month-chevron svg { width: 16px; height: 16px; display: block; }
+.ph-month-bell {
+  font-size: 12px;
+  color: var(--ph-muted);
+  opacity: 0.8;
+}
+
+/* ── Day picker row (scheduled view) ── */
+.ph-day-row {
+  display: flex;
+  gap: 0;
+}
+.ph-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.ph-day-letter {
+  font-size: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ph-muted);
+  font-family: var(--ph-sec-font);
+  letter-spacing: 0.3px;
+}
+.ph-day-num-wrap {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-day-num-wrap.today {
+  border-radius: 50%;
+  background: var(--ph-accent);
+}
+.ph-day-num {
+  font-size: 9px;
+  font-family: var(--ph-header-font);
+  font-weight: 700;
+  color: var(--ph-text);
+}
+.ph-day-num-wrap.today .ph-day-num {
+  color: var(--ph-accent-text);
+}
+.ph-day-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ph-accent);
+}
+.ph-day.today .ph-day-dot {
+  background: var(--ph-accent-text);
+}
+
+/* ── Sort / filter row (list view) ── */
+.ph-sort-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--ph-divider);
+  flex-shrink: 0;
+}
+.ph-sort-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.ph-sort-label {
+  font-size: 6.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--ph-accent);
+  font-family: var(--ph-sec-font);
+}
+.ph-sort-val {
+  font-size: 7px;
+  color: var(--ph-text);
+}
+.ph-sort-chevron {
+  font-size: 6px;
+  color: var(--ph-accent);
+}
+.ph-sort-sep {
+  width: 1px;
+  height: 10px;
+  background: var(--ph-divider);
+  opacity: 0.5;
+}
+
+/* ── Reminder list containers ── */
+.ph-sched-list {
+  flex: 1;
+  overflow: hidden;
+  padding: 7px 8px 0 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.ph-list-list {
+  flex: 1;
+  overflow: hidden;
+  padding: 7px 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Scheduled reminder row ── */
+.ph-sched-item {
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+.ph-time-col {
+  width: 33px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+  gap: 3px;
+  flex-shrink: 0;
+}
+.ph-time-bubble {
+  background: var(--ph-divider);
+  border-radius: 5px;
+  padding: 3px 4px;
+  font-size: 7px;
+  font-weight: 600;
+  color: var(--ph-text);
+  text-align: center;
+  white-space: nowrap;
+}
+.ph-time-repeat {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.ph-time-repeat svg {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+.ph-time-repeat-label {
+  font-size: 6px;
+  font-weight: 600;
+}
+
+/* ── Shared card ── */
+.ph-card {
+  display: flex;
+  align-items: stretch;
+  border-radius: 9px;
+  overflow: hidden;
+  opacity: 0.93;
+  background: var(--ph-card);
+  border: 1px solid var(--ph-card-border);
+  min-height: 50px;
+  flex: 1;
+}
+.ph-avatar-col {
+  width: 40px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.ph-avatar-col img {
+  width: 40px;
+  height: 100%;
+  object-fit: cover;
+}
+.ph-text-block {
+  flex: 1;
+  padding: 6px 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+}
+.ph-char-name {
+  font-size: 6.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--ph-accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ph-title {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--ph-text);
+  line-height: 1.3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.ph-title.done {
+  text-decoration: line-through;
+  color: var(--ph-muted);
+}
+.ph-body-text {
+  font-size: 7.5px;
+  color: var(--ph-text);
+  line-height: 1.3;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ph-check-wrap {
+  padding: 6px 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ph-check-filled {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--ph-check);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-check-filled::after {
+  content: '✓';
+  font-size: 8px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+}
+.ph-check-empty {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ph-muted);
+}
+
+/* ── Scheduled card following icon ── */
+.ph-sched-following {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 2px;
+}
+.ph-sched-following svg {
+  width: 8px;
+  height: 8px;
+}
+
+/* ── Month header icon row ── */
+.ph-month-icons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.ph-month-icons svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0.65;
+}
+
+/* ── List view card extras ── */
+.ph-list-card {
+  display: flex;
+  align-items: stretch;
+  border-radius: 9px;
+  overflow: hidden;
+  opacity: 0.93;
+  background: var(--ph-card);
+  border: 1px solid var(--ph-card-border);
+  flex-shrink: 0;
+}
+.ph-list-avatar {
+  width: 34px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.ph-list-avatar img {
+  width: 34px;
+  height: 100%;
+  object-fit: cover;
+}
+.ph-list-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.ph-due-pill {
+  align-self: flex-end;
+  background: #FF4400;
+  padding: 2px 7px 2px 5px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-bottom-left-radius: 6px;
+}
+.ph-due-pill-text {
+  font-size: 7.5px;
+  font-weight: 600;
+  color: #fff;
+}
+.ph-list-content {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+}
+.ph-list-text {
+  flex: 1;
+  padding: 5px 5px 5px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.ph-list-check-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 7px;
+  gap: 3px;
+  flex-shrink: 0;
+}
+.ph-flag {
+  font-size: 10px;
+  color: #FF4400;
+}
+.ph-repeat-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 2px;
+}
+.ph-repeat-icon { font-size: 8px; }
+.ph-repeat-label {
+  font-size: 7px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ── Bottom nav ── */
+.ph-bottom-nav {
+  background: var(--ph-tabbar);
+  border-top: 1px solid var(--ph-divider);
+  display: flex;
+  padding: 6px 8px 7px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+.ph-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.ph-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-nav-icon svg { width: 12px; height: 12px; display: block; }
+.ph-nav-label {
+  font-size: 5.5px;
+  font-weight: 600;
+}
+.ph-nav-item.inactive .ph-nav-icon,
+.ph-nav-item.inactive .ph-nav-label { color: var(--ph-muted); }
+.ph-nav-item.active .ph-nav-icon,
+.ph-nav-item.active .ph-nav-label  { color: var(--ph-accent); }
+.ph-nav-add-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-nav-add-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--ph-accent);
+  color: var(--ph-accent-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* ============================================================
+   NOTIFICATION DETAIL PHONE
+   ============================================================ */
+.ph-notif-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ph-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--ph-text);
+  opacity: 0.85;
+}
+.ph-notif-scroll {
+  flex: 1;
+  overflow: hidden;
+  padding: 10px 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ph-notif-avatar {
+  width: 169px;
+  height: 169px;
+  border-radius: 26px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+.ph-notif-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ph-notif-avlabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ph-muted);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.ph-notif-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ph-text);
+  text-align: center;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  font-family: var(--ph-header-font);
+  letter-spacing: 0.2px;
+}
+.ph-notif-due {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.ph-notif-due-icon { display: flex; align-items: center; color: #FF4400; }
+.ph-notif-due-icon svg { width: 12px; height: 12px; display: block; }
+.ph-notif-due-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: #FF4400;
+}
+.ph-notif-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--ph-divider);
+  margin-bottom: 10px;
+}
+.ph-notif-body {
+  font-size: 10.5px;
+  line-height: 1.55;
+  color: var(--ph-text);
+  width: 100%;
+  white-space: pre-line;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+.ph-notif-actions {
+  background: var(--ph-card);
+  border-top: 1px solid var(--ph-divider);
+  padding: 9px 11px 10px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ph-notif-action-row { display: flex; gap: 6px; }
+.ph-notif-btn-primary svg,
+.ph-notif-btn-secondary svg,
+.ph-notif-btn-tertiary svg { width: 11px; height: 11px; flex-shrink: 0; display: block; }
+.ph-notif-btn-primary {
+  flex: 1;
+  background: var(--ph-accent);
+  border-radius: 9px;
+  padding: 8px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.ph-notif-btn-primary span {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ph-accent-text);
+}
+.ph-notif-btn-secondary {
+  flex: 1;
+  border: 1px solid rgba(128,128,128,0.35);
+  border-radius: 9px;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.ph-notif-btn-secondary span {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ph-muted);
+}
+.ph-notif-btn-tertiary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 2px 0;
+}
+.ph-notif-btn-tertiary span {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ph-muted);
+}
+
+/* ============================================================
+   FOLLOWING FEED PHONE
+   ============================================================ */
+.ph-feed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px 8px;
+  border-bottom: 1px solid var(--ph-divider);
+  flex-shrink: 0;
+}
+.ph-feed-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ph-text);
+  font-family: var(--ph-header-font);
+}
+.ph-qr-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--ph-divider);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ph-muted);
+}
+.ph-qr-btn svg { width: 14px; height: 14px; display: block; }
+.ph-filter-bar {
+  display: flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-bottom: 1px solid var(--ph-divider);
+  gap: 6px;
+  flex-shrink: 0;
+}
+.ph-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ph-filter-label {
+  font-size: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--ph-accent);
+  font-family: var(--ph-sec-font);
+}
+.ph-filter-val {
+  font-size: 11px;
+  color: var(--ph-text);
+  font-weight: 400;
+}
+.ph-filter-chevron {
+  display: flex;
+  align-items: center;
+  color: var(--ph-accent);
+}
+.ph-filter-chevron svg { width: 9px; height: 9px; display: block; }
+.ph-explore-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid var(--ph-divider);
+  border-radius: 12px;
+  padding: 3px 8px;
+}
+.ph-explore-label {
+  font-size: 9px;
+  color: var(--ph-muted);
+  font-weight: 500;
+}
+.ph-feed-scroll {
+  flex: 1;
+  overflow: hidden;
+  padding: 8px 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+.ph-section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+}
+.ph-section-label {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--ph-muted);
+  white-space: nowrap;
+}
+.ph-section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--ph-divider);
+}
+.ph-post-card {
+  background: var(--ph-card);
+  border: 1px solid var(--ph-card-border);
+  border-radius: 11px;
+  overflow: hidden;
+  margin-bottom: 7px;
+  flex-shrink: 0;
+}
+.ph-post-hd {
+  display: flex;
+  align-items: center;
+  padding: 9px 10px 6px;
+  gap: 7px;
+}
+.ph-author-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ph-author-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ph-post-meta { flex: 1; }
+.ph-author-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ph-text);
+  line-height: 1.2;
+}
+.ph-post-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.ph-post-time {
+  font-size: 8px;
+  color: var(--ph-muted);
+}
+.ph-post-dot { font-size: 8px; color: var(--ph-muted); }
+.ph-recur-badge {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.ph-recur-icon { display: flex; align-items: center; }
+.ph-recur-icon svg { width: 8px; height: 8px; display: block; }
+.ph-recur-label { font-size: 7.5px; font-weight: 600; }
+.ph-post-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ph-post-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.ph-post-body {
+  padding: 0 10px 8px;
+}
+.ph-post-header-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ph-text);
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+.ph-post-body-text {
+  font-size: 9.5px;
+  color: var(--ph-text);
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.ph-post-actions {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px 7px;
+  border-top: 1px solid var(--ph-divider);
+}
+.ph-heart { display: flex; align-items: center; color: var(--ph-muted); }
+.ph-heart svg { width: 12px; height: 12px; display: block; }
+.ph-kebab { display: flex; align-items: center; color: var(--ph-muted); margin-left: auto; }
+.ph-kebab svg { width: 12px; height: 12px; display: block; }
+
+/* ============================================================
+   HABIT TRACKER PHONE
+   ============================================================ */
+.ph-habit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px 6px;
+  flex-shrink: 0;
+}
+.ph-habit-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ph-text);
+  font-family: var(--ph-header-font);
+}
+.ph-habit-close { display: flex; align-items: center; color: var(--ph-muted); }
+.ph-habit-close svg { width: 14px; height: 14px; display: block; }
+.ph-habit-subtitle {
+  font-size: 9px;
+  color: var(--ph-muted);
+  line-height: 1.4;
+  padding: 0 14px 8px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.ph-habit-controls {
+  padding: 6px 14px 8px;
+  border-bottom: 1px solid var(--ph-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.ph-ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ph-ctrl-label {
+  font-size: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--ph-accent);
+  font-family: var(--ph-sec-font);
+}
+.ph-ctrl-val { font-size: 9.5px; color: var(--ph-text); font-weight: 400; }
+.ph-ctrl-chevron { display: flex; align-items: center; color: var(--ph-accent); }
+.ph-ctrl-chevron svg { width: 8px; height: 8px; display: block; }
+.ph-habit-list {
+  flex: 1;
+  overflow: hidden;
+  padding: 8px 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.ph-habit-card {
+  display: flex;
+  align-items: stretch;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--ph-card);
+  border: 1px solid var(--ph-card-border);
+  flex-shrink: 0;
+}
+.ph-habit-img-col {
+  width: 46px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.ph-habit-img-col img {
+  width: 46px;
+  height: 100%;
+  object-fit: cover;
+}
+.ph-habit-content {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ph-habit-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.ph-habit-img-name {
+  font-size: 6.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--ph-accent);
+}
+.ph-habit-task-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ph-text);
+  line-height: 1.3;
+}
+.ph-habit-task-body {
+  font-size: 8px;
+  color: var(--ph-text);
+  line-height: 1.3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.ph-habit-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 4px;
+}
+.ph-habit-detail-icon { display: flex; align-items: center; }
+.ph-habit-detail-icon svg { width: 8px; height: 8px; display: block; }
+.ph-habit-detail-text { font-size: 8px; font-weight: 500; }
+.ph-habit-followers-icon { display: flex; align-items: center; }
+.ph-habit-followers-icon svg { width: 9px; height: 9px; display: block; }
+.ph-habit-metrics {
+  width: 66px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 7px;
+  gap: 3px;
+}
+.ph-habit-fraction {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+.ph-habit-fraction .numerator   { color: var(--ph-accent); }
+.ph-habit-fraction .denominator { color: var(--ph-text); }
+.ph-habit-bar-track {
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+.ph-habit-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--ph-accent);
+}
+.ph-habit-pct {
+  font-size: 8px;
+  font-weight: 500;
+  color: var(--ph-text);
+  opacity: 0.75;
+  text-align: center;
+}
+
+/* ============================================================
+   THEME SELECTOR BAR
+   ============================================================ */
+/* Theme section (sticky bar) — retired; theme picker now lives in hero-stage right col */
+.theme-section { display: none; }
+.theme-panel-grid::-webkit-scrollbar { display: none; }
+.theme-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 7px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 88px;
+  transition: border-color 180ms, background 180ms;
+}
+.theme-tile:hover { border-color: rgba(127,82,255,0.45); }
+.theme-tile.active {
+  border-color: #7F52FF;
+  box-shadow: var(--glow-sm);
+}
+.tile-name {
+  font-size: 12px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  min-height: 30px; /* reserve 2-line height at 12px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swatch-block { display: flex; flex-direction: column; gap: 3px; }
+.swatch-row { display: flex; gap: 3px; }
+.swatch-bg {
+  flex: 2;
+  height: 13px;
+  border-radius: 3px;
+}
+.swatch-sm {
+  flex: 1;
+  height: 13px;
+  border-radius: 3px;
+}
+.swatch-light-border {
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* ============================================================
+   SOCIAL (FOLLOWING) SECTION
+   ============================================================ */
+.social-section {
+  padding: 56px 100px 56px 100px;
+  padding-right: calc(100px + 210px); /* extra room for fixed theme panel */
+}
+.social-inner {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 150px;
+  align-items: flex-end;
+  justify-content: center;
+}
+.social-text { max-width: 500px; }
+.social-text h2 { margin-bottom: 20px; }
+.social-text p {
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.65;
+}
+.social-text p:last-child { margin-bottom: 0; }
+.social-text .legal-note {
+  font-size: 13px;
+  font-weight: 200;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   HABITS SECTION
+   ============================================================ */
+.habits-section {
+  padding: 96px 0;
+  padding-right: 210px; /* room for fixed theme panel */
+  border-top: 1px solid var(--border);
+}
+.habits-inner {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 150px;
+  align-items: center;
+  justify-content: center;
+}
+.habits-text { max-width: 500px; }
+.habits-text h2 { margin-bottom: 20px; }
+.habits-text p {
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.65;
+}
+.habits-text .growth-statement {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.35;
+  margin-top: 24px;
+}
+
+/* ============================================================
+   DOWNLOAD / WAITLIST SECTION
+   ============================================================ */
+.download-section {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.download-section h2 {
+  font-size: clamp(26px, 4vw, 40px);
+  max-width: 680px;
+  margin: 0 auto 16px;
+}
+.download-section .sub {
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.5;
+}
+.email-placeholder {
+  background: var(--surface);
+  border: 1px dashed rgba(127,82,255,0.45);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  max-width: 520px;
+  margin: 0 auto 40px;
+  color: var(--text-faint);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.email-placeholder strong {
+  display: block;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 16px;
+  color: var(--accent);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+.store-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+}
+.download-notes {
+  max-width: 440px;
+  margin: 36px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.download-notes p {
+  font-size: 12px;
+  color: var(--text-faint);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.footer-brand .logo {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 28px;
+  text-shadow: var(--glow-sm);
+  margin-bottom: 8px;
+}
+.footer-brand .tagline {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+.footer-col h4 {
+  font-family: 'Open Sauce One', sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+.footer-col a {
+  display: block;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color 150ms, text-shadow 150ms;
+}
+.footer-col a:hover { color: var(--text); text-shadow: var(--glow-sm); }
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 13px;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.section-divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+
+  /* Extra bottom clearance so the fixed panel never hides content */
+  body { padding-bottom: 25vh; }
+
+  /* ── Hero: single column, Option B order (lockscreen → phones) ── */
+  .hero-stage {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 24px;
+  }
+  .theme-panel-spacer { display: none; }
+  .lockscreen-col {
+    display: flex;
+    align-items: flex-start;
+    min-height: unset;
+    width: 100%;
+    max-width: 460px;
+  }
+  .phone-pair { flex-direction: column; align-items: center; }
+
+  /* ── Social section: text already first in DOM ✓ ── */
+  .social-section { padding-right: 100px; } /* reset desktop panel offset */
+  .social-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* ── Habits section: phone is first in DOM — flip to text-first ── */
+  .habits-section { padding-right: 0; } /* reset desktop panel offset */
+  .habits-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #phone-habits { order: 2; }
+  .habits-text  { order: 1; }
+
+  /* ── Theme panel: fixed at bottom, sticky across all phone sections ── */
+  .theme-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    max-height: 25vh;
+    padding: 10px 16px max(14px, env(safe-area-inset-bottom));
+    background: rgba(33,15,61,0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    /* Upward purple glow — the border is on top now */
+    border: none;
+    border-top: 2px solid var(--accent);
+    box-shadow:
+      0 -4px 20px rgba(127,82,255,0.45),
+      0 -14px 48px rgba(127,82,255,0.22);
+    transform: translateY(0);
+    transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme-panel.panel-hidden {
+    transform: translateY(110%);
+  }
+  .theme-panel-header { text-align: center; }
+  /* Remove the box border from the grid — panel border replaces it */
+  .theme-panel-grid {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    max-height: calc(25vh - 46px);
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="file:///Users/christina/IconicReminders/assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/></a>
+    <div class="nav-links">
+      <a href="feature-requests.html">Feature Requests</a>
+      <a href="#download" class="btn btn-primary" style="font-size:14px; padding:9px 18px;">Download app</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-stage">
+
+      <!-- Left: heading, subtitle, lockscreen preview -->
+      <div class="lockscreen-col">
+        <h1 class="h1">
+          <span class="glow-text">Remember why</span> you're doing it, <span class="glow-text">not just what</span> it is.
+        </h1>
+        <p class="hero-sub">Each task notification (optionally) comes with a photo of your choice that'll get you to move: a friend group counting on you, your dog staring at you, or an iconic fictional character you aspire to be more like.</p>
+        
+        <img class="lockscreen-notif-img" src="file:///Users/christina/IconicReminders/assets/images/lock%20screen%20notification%20mockup%20large.png" alt="Lock screen notification mockup"/>
+        <div class="lockscreen-caption">
+          <span>To admire the photo you chose, you have to open the notification 😤</span>
+          <img src="file:///Users/christina/IconicReminders/assets/images/arrow%20pointing%20up.png" alt="" style="height:50px;flex-shrink:0;"/>
+        </div>
+      </div>
+
+      <!-- Two phone mockups -->
+      <div class="phone-pair-wrap">
+      <p class="theme-preview-label">Previewing theme: <span id="theme-preview-name">Simple Light</span></p>
+      <div class="phone-pair">
+
+        <!-- Phone 1: Scheduled view -->
+        <div class="phone-frame" id="phone-sched">
+          <div class="bg-overlay"></div>
+          <div class="phone-screen">
+            <!-- Status bar -->
+            <div class="ph-status">
+              <span class="ph-status-time">9:41</span>
+              <span class="ph-status-icons">▌▌▌ ◈ ▮</span>
+            </div>
+            <!-- Month + day picker -->
+            <div class="ph-header">
+              <div class="ph-month-row">
+                <div class="ph-month-left">
+                  <span class="ph-month-text">May 2026</span>
+                  <div class="ph-month-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg></div>
+                </div>
+                <div class="ph-month-icons" style="color:var(--ph-muted)">
+                  <!-- ChartNoAxesCombined -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  <!-- checkmark-circle-outline -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                  <!-- notifications-outline (bell) -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+              </div>
+              <div class="ph-day-row">
+                <div class="ph-day"><span class="ph-day-letter">S</span><div class="ph-day-num-wrap"><span class="ph-day-num">17</span></div></div>
+                <div class="ph-day"><span class="ph-day-letter">M</span><div class="ph-day-num-wrap"><span class="ph-day-num">18</span></div></div>
+                <div class="ph-day"><span class="ph-day-letter">T</span><div class="ph-day-num-wrap"><span class="ph-day-num">19</span></div></div>
+                <div class="ph-day today"><span class="ph-day-letter">W</span><div class="ph-day-num-wrap today"><span class="ph-day-num">20</span></div></div>
+                <div class="ph-day"><span class="ph-day-letter">T</span><div class="ph-day-num-wrap"><span class="ph-day-num">21</span></div></div>
+                <div class="ph-day"><span class="ph-day-letter">F</span><div class="ph-day-num-wrap"><span class="ph-day-num">22</span></div></div>
+                <div class="ph-day"><span class="ph-day-letter">S</span><div class="ph-day-num-wrap"><span class="ph-day-num">23</span></div></div>
+              </div>
+            </div>
+            <!-- Reminder list -->
+            <div class="ph-sched-list">
+              <!-- 8 AM - completed -->
+              <div class="ph-sched-item">
+                <div class="ph-time-col">
+                  <div class="ph-time-bubble">8 AM</div>
+                  <span class="ph-time-repeat" style="color:var(--ph-dot-d)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>
+                    <span class="ph-time-repeat-label">Daily</span>
+                  </span>
+                </div>
+                <div class="ph-card">
+                  <div class="ph-avatar-col"><img src="file:///Users/christina/IconicReminders/assets/images/placeholder-pet.png" alt=""/></div>
+                  <div class="ph-text-block">
+                    <span class="ph-char-name">Muffin the fluffy bunny</span>
+                    <span class="ph-title done">Morning walk</span>
+                    <span class="ph-body-text">Take a 20-minute walk before breakfast</span>
+                    <div class="ph-sched-following" style="color:var(--ph-tertiary)">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                  </div>
+                  <div class="ph-check-wrap"><div class="ph-check-filled"></div></div>
+                </div>
+              </div>
+              <!-- 10 AM -->
+              <div class="ph-sched-item">
+                <div class="ph-time-col">
+                  <div class="ph-time-bubble">10 AM</div>
+                  <span class="ph-time-repeat" style="color:var(--ph-dot-w)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>
+                    <span class="ph-time-repeat-label">Weekly</span>
+                  </span>
+                </div>
+                <div class="ph-card">
+                  <div class="ph-avatar-col"><img src="file:///Users/christina/IconicReminders/assets/images/placeholder-family.jpeg" alt=""/></div>
+                  <div class="ph-text-block">
+                    <span class="ph-char-name">Family</span>
+                    <span class="ph-title">Call Mom</span>
+                    <span class="ph-body-text">Check in about the reunion plans</span>
+                    <div class="ph-sched-following" style="color:var(--ph-tertiary)">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                  </div>
+                  <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
+                </div>
+              </div>
+              <!-- 7 PM -->
+              <div class="ph-sched-item">
+                <div class="ph-time-col">
+                  <div class="ph-time-bubble">7 PM</div>
+                </div>
+                <div class="ph-card">
+                  <div class="ph-avatar-col"><img src="file:///Users/christina/IconicReminders/assets/images/placeholder-event.png" alt=""/></div>
+                  <div class="ph-text-block">
+                    <span class="ph-char-name">Chris's wedding</span>
+                    <span class="ph-title">Anniversary dinner reservation</span>
+                    <span class="ph-body-text">Reserve a table at Maison for 7 PM</span>
+                  </div>
+                  <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
+                </div>
+              </div>
+              <!-- 8 PM -->
+              <div class="ph-sched-item">
+                <div class="ph-time-col">
+                  <div class="ph-time-bubble">8 PM</div>
+                  <span class="ph-time-repeat" style="color:var(--ph-dot-d)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                    <span class="ph-time-repeat-label">Daily</span>
+                  </span>
+                </div>
+                <div class="ph-card">
+                  <div class="ph-avatar-col"><img src="file:///Users/christina/IconicReminders/assets/images/fictional%20character%202.png" alt=""/></div>
+                  <div class="ph-text-block">
+                    <span class="ph-char-name">Inspirational fictional character</span>
+                    <span class="ph-title">Hit the gym</span>
+                    <span class="ph-body-text">A stronger body = back randomly hurts less.</span>
+                  </div>
+                  <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
+                </div>
+              </div>
+            </div>
+            <!-- Bottom nav -->
+            <div class="ph-bottom-nav">
+              <div class="ph-nav-item inactive">
+                <span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+                <span class="ph-nav-label">All</span>
+              </div>
+              <div class="ph-nav-item active">
+                <span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                <span class="ph-nav-label">Scheduled</span>
+              </div>
+              <div class="ph-nav-add-wrap">
+                <div class="ph-nav-add-btn">+</div>
+              </div>
+              <div class="ph-nav-item inactive">
+                <span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <span class="ph-nav-label">Following</span>
+              </div>
+              <div class="ph-nav-item inactive">
+                <span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg></span>
+                <span class="ph-nav-label">You</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 2: Notification detail -->
+        <div class="phone-frame" id="phone-notif">
+          <div class="bg-overlay"></div>
+          <div class="phone-screen">
+            <div class="ph-status">
+              <span class="ph-status-time">9:41</span>
+              <span class="ph-status-icons">▌▌▌ ◈ ▮</span>
+            </div>
+            <div class="ph-notif-close">✕</div>
+            <div class="ph-notif-scroll">
+              <div class="ph-notif-avatar">
+                <img src="file:///Users/christina/IconicReminders/assets/images/placeholder-family.jpeg" alt=""/>
+              </div>
+              <div class="ph-notif-avlabel">Family</div>
+              <div class="ph-notif-title">Buy mom's birthday gift</div>
+              <div class="ph-notif-due">
+                <span class="ph-notif-due-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <span class="ph-notif-due-text">Was due May 13, 12:00 PM</span>
+              </div>
+              <div class="ph-notif-divider"></div>
+              <div class="ph-notif-body">Her birthday is Saturday. Need to order online or pick something up before then.
+
+Ideas:
+• Cookbook she mentioned
+• Spa day voucher
+• That ceramic plant pot she liked
+
+Budget: ~$50.</div>
+            </div>
+            <div class="ph-notif-actions">
+              <div class="ph-notif-action-row">
+                <div class="ph-notif-btn-primary">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-accent-text)"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Mark as completed</span>
+                </div>
+                <div class="ph-notif-btn-secondary">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                  <span>Snooze</span>
+                </div>
+              </div>
+              <div class="ph-notif-btn-tertiary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <span>Reschedule</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /phone-pair -->
+      </div><!-- /phone-pair-wrap -->
+
+      <!-- Spacer: holds the right grid column so hero proportions stay identical -->
+      <div class="theme-panel-spacer"></div>
+
+      <!-- Theme panel: position:fixed removes it from grid flow; spacer above holds the column -->
+      <div class="theme-panel">
+        <p class="theme-panel-header">Choose your aesthetic</p>
+        <div class="theme-panel-grid" id="theme-bar">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </div><!-- /hero-stage -->
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SOCIAL / FOLLOWING SECTION
+══════════════════════════════════════════════════ -->
+<section class="social-section">
+  <div class="container">
+    <div class="social-inner">
+      <div class="social-text">
+        <span class="label-eyebrow" style="margin-bottom:12px; display:inline-block;">Accountability, but lowkey</span>
+        <h2 class="h2">Seeing your <span class="glow-text">friends in action</span> can also get you going.</h2>
+        <p style="margin-top:20px;">Need more inspiration to act than just your uploaded pictures? Add friends and share select tasks + its avatar. Just tasks — <span class="glow-text--soft">no streaks, completion status, progress, or leaderboard</span>.</p>
+        <p>Each ❤️ coming through = an extra task reminder from a friend.</p>
+        <p class="legal-note">[To be clear, you'll be able to switch on follower visibility per task. Turn it off anytime for privacy.]</p>
+        <p style="margin-top:12px;">See a friend post toxic habits or their toxic ex as their task avatar? Talk to them off the app. Or just mute them. We're working on ways to prevent this too.</p>
+      </div>
+
+      <!-- Phone 3: Following feed -->
+      <div class="phone-frame" id="phone-following">
+        <div class="bg-overlay"></div>
+        <div class="phone-screen">
+          <div class="ph-status">
+            <span class="ph-status-time">9:41</span>
+            <span class="ph-status-icons">▌▌▌ ◈ ▮</span>
+          </div>
+          <!-- Header -->
+          <div class="ph-feed-header">
+            <span class="ph-feed-title">Following</span>
+            <div class="ph-qr-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M16 21h.01M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01M12 3h.01M12 16v.01M16 12h1a2 2 0 0 1 2 2v1"/></svg></div>
+          </div>
+          <!-- Filter bar -->
+          <div class="ph-filter-bar">
+            <div class="ph-filter-group">
+              <span class="ph-filter-label">VIEW:</span>
+              <span class="ph-filter-val">All posts</span>
+              <span class="ph-filter-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </div>
+            <div class="ph-explore-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:9px;height:9px;flex-shrink:0;color:var(--ph-muted);display:block"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <span class="ph-explore-label">Explore</span>
+            </div>
+          </div>
+          <!-- Feed -->
+          <div class="ph-feed-scroll">
+            <div class="ph-section-label-row">
+              <span class="ph-section-label">Today</span>
+              <div class="ph-section-line"></div>
+            </div>
+            <!-- Post 1 -->
+            <div class="ph-post-card">
+              <div class="ph-post-hd">
+                <div class="ph-author-circle"><img src="file:///Users/christina/IconicReminders/assets/images/profile-friend-1.png" alt=""/></div>
+                <div class="ph-post-meta">
+                  <div class="ph-author-name">Mira Tanaka</div>
+                  <div class="ph-post-meta-row">
+                    <span class="ph-post-time">7:30 AM</span>
+                    <span class="ph-post-dot">·</span>
+                    <div class="ph-recur-badge">
+                      <span class="ph-recur-icon" style="color:var(--ph-dot-d)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                      <span class="ph-recur-label" style="color:var(--ph-dot-d)">Daily</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ph-post-thumb"><img src="file:///Users/christina/IconicReminders/assets/images/colorful dog character.png" alt=""/></div>
+              </div>
+              <div class="ph-post-body">
+                <div class="ph-post-header-text">Morning stretches</div>
+                <div class="ph-post-body-text">10 minutes of full-body stretching before coffee. Non-negotiable.</div>
+              </div>
+              <div class="ph-post-actions">
+                <span class="ph-heart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+                <span class="ph-kebab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+              </div>
+            </div>
+            <!-- Post 2 -->
+            <div class="ph-post-card">
+              <div class="ph-post-hd">
+                <div class="ph-author-circle"><img src="file:///Users/christina/IconicReminders/assets/images/profile-friend-2.jpeg" alt=""/></div>
+                <div class="ph-post-meta">
+                  <div class="ph-author-name">Kira Bennett</div>
+                  <div class="ph-post-meta-row">
+                    <span class="ph-post-time">9:00 AM</span>
+                    <span class="ph-post-dot">·</span>
+                    <div class="ph-recur-badge">
+                      <span class="ph-recur-icon" style="color:var(--ph-dot-d)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                      <span class="ph-recur-label" style="color:var(--ph-dot-d)">Daily</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ph-post-thumb"><img src="file:///Users/christina/IconicReminders/assets/images/aztec art.png" alt=""/></div>
+              </div>
+              <div class="ph-post-body">
+                <div class="ph-post-header-text">Deep work block</div>
+                <div class="ph-post-body-text">90 minutes of distraction-free work. Phone goes face-down.</div>
+              </div>
+              <div class="ph-post-actions">
+                <span class="ph-heart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+                <span class="ph-kebab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+              </div>
+            </div>
+            <!-- Post 3 -->
+            <div class="ph-post-card">
+              <div class="ph-post-hd">
+                <div class="ph-author-circle"><img src="file:///Users/christina/IconicReminders/assets/images/profile-friend-4.jpg" alt=""/></div>
+                <div class="ph-post-meta">
+                  <div class="ph-author-name">Jin Okafor</div>
+                  <div class="ph-post-meta-row">
+                    <span class="ph-post-time">5:30 PM</span>
+                    <span class="ph-post-dot">·</span>
+                    <div class="ph-recur-badge">
+                      <span class="ph-recur-icon" style="color:var(--ph-dot-w)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                      <span class="ph-recur-label" style="color:var(--ph-dot-w)">Weekly</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ph-post-body">
+                <div class="ph-post-header-text">Gym — push day</div>
+              </div>
+              <div class="ph-post-actions">
+                <span class="ph-heart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+                <span class="ph-kebab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom nav -->
+          <div class="ph-bottom-nav">
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="ph-nav-label">All</span></div>
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="ph-nav-label">Scheduled</span></div>
+            <div class="ph-nav-add-wrap"><div class="ph-nav-add-btn">+</div></div>
+            <div class="ph-nav-item active"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="ph-nav-label">Following</span></div>
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg></span><span class="ph-nav-label">You</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ══════════════════════════════════════════════
+     HABIT TRACKER SECTION
+══════════════════════════════════════════════════ -->
+<section class="habits-section">
+  <div class="container">
+    <div class="habits-inner">
+
+      <!-- Phone 4: Habit tracker -->
+      <div class="phone-frame" id="phone-habits">
+        <div class="bg-overlay"></div>
+        <div class="phone-screen">
+          <div class="ph-status">
+            <span class="ph-status-time">9:41</span>
+            <span class="ph-status-icons">▌▌▌ ◈ ▮</span>
+          </div>
+          <div class="ph-habit-header">
+            <span class="ph-habit-title">Habit tracker</span>
+            <span class="ph-habit-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          </div>
+          <div class="ph-habit-subtitle">Add any repeating task here by switching on "Add this task to Habit Tracker" when adding or editing a task.</div>
+          <div class="ph-habit-controls">
+            <div class="ph-ctrl-row">
+              <span class="ph-ctrl-label">SORT BY:</span>
+              <span class="ph-ctrl-val">Date created — newest</span>
+              <span class="ph-ctrl-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </div>
+            <div class="ph-ctrl-row">
+              <span class="ph-ctrl-label">VIEW DATA FROM:</span>
+              <span class="ph-ctrl-val">View all</span>
+              <span class="ph-ctrl-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+            </div>
+          </div>
+          <div class="ph-habit-list">
+            <!-- Card 1 (newest): Take vitamin C · daily · 6/8 · 75% · May 8 2026 · no image -->
+            <div class="ph-habit-card">
+              <div class="ph-habit-content" style="padding-left:12px;">
+                <div class="ph-habit-top">
+                  <span class="ph-habit-task-title">Take vitamin C</span>
+                </div>
+                <div class="ph-habit-detail-row">
+                  <span class="ph-habit-detail-icon" style="color:var(--ph-dot-d)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                  <span class="ph-habit-detail-text" style="color:var(--ph-dot-d)">Daily</span>
+                  <span class="ph-habit-detail-icon" style="color:var(--ph-tertiary);margin-left:3px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                  <span class="ph-habit-detail-text" style="color:var(--ph-tertiary)">May 8, 2026</span>
+                </div>
+              </div>
+              <div class="ph-habit-metrics" style="background:rgba(128,128,128,0.10);">
+                <div class="ph-habit-fraction"><span class="numerator">6</span><span class="denominator">/8</span></div>
+                <div class="ph-habit-bar-track" style="background:rgba(128,128,128,0.25);"><div class="ph-habit-bar-fill" style="width:75%"></div></div>
+                <div class="ph-habit-pct">75% achieved</div>
+              </div>
+            </div>
+            <!-- Card 2: Weekly review · weekly · 3/3 · 100% · Apr 26 2026 · no image -->
+            <div class="ph-habit-card">
+              <div class="ph-habit-content" style="padding-left:12px;">
+                <div class="ph-habit-top">
+                  <span class="ph-habit-task-title">Weekly review</span>
+                  <span class="ph-habit-task-body">Review goals and plan the week ahead</span>
+                </div>
+                <div class="ph-habit-detail-row">
+                  <span class="ph-habit-detail-icon" style="color:var(--ph-dot-w)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                  <span class="ph-habit-detail-text" style="color:var(--ph-dot-w)">Weekly</span>
+                  <span class="ph-habit-detail-icon" style="color:var(--ph-tertiary);margin-left:3px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                  <span class="ph-habit-detail-text" style="color:var(--ph-tertiary)">Apr 26, 2026</span>
+                </div>
+              </div>
+              <div class="ph-habit-metrics" style="background:rgba(128,128,128,0.10);">
+                <div class="ph-habit-fraction"><span class="numerator">3</span><span class="denominator">/3</span></div>
+                <div class="ph-habit-bar-track" style="background:rgba(128,128,128,0.25);"><div class="ph-habit-bar-fill" style="width:100%"></div></div>
+                <div class="ph-habit-pct">100% achieved</div>
+              </div>
+            </div>
+            <!-- Card 3: Morning walk · daily · 32/45 · 71% · Apr 1 2026 · pet image · following -->
+            <div class="ph-habit-card">
+              <div class="ph-habit-img-col"><img src="file:///Users/christina/IconicReminders/assets/images/placeholder-pet.png" alt=""/></div>
+              <div class="ph-habit-content">
+                <div class="ph-habit-top">
+                  <span class="ph-habit-img-name">Your pet</span>
+                  <span class="ph-habit-task-title">Morning walk</span>
+                  <span class="ph-habit-task-body">Take a 20-minute walk before breakfast</span>
+                </div>
+                <div class="ph-habit-detail-row">
+                  <span class="ph-habit-followers-icon" style="color:var(--ph-tertiary)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                  <span class="ph-habit-detail-icon" style="color:var(--ph-dot-d)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                  <span class="ph-habit-detail-text" style="color:var(--ph-dot-d)">Daily</span>
+                  <span class="ph-habit-detail-icon" style="color:var(--ph-tertiary);margin-left:3px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                  <span class="ph-habit-detail-text" style="color:var(--ph-tertiary)">Apr 1, 2026</span>
+                </div>
+              </div>
+              <div class="ph-habit-metrics" style="background:rgba(128,128,128,0.10);">
+                <div class="ph-habit-fraction"><span class="numerator">32</span><span class="denominator">/45</span></div>
+                <div class="ph-habit-bar-track" style="background:rgba(128,128,128,0.25);"><div class="ph-habit-bar-fill" style="width:71%"></div></div>
+                <div class="ph-habit-pct">71% achieved</div>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom nav -->
+          <div class="ph-bottom-nav">
+            <div class="ph-nav-item active"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="ph-nav-label">All</span></div>
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="ph-nav-label">Scheduled</span></div>
+            <div class="ph-nav-add-wrap"><div class="ph-nav-add-btn">+</div></div>
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="ph-nav-label">Following</span></div>
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg></span><span class="ph-nav-label">You</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="habits-text">
+        <span class="label-eyebrow" style="margin-bottom:12px; display:inline-block;">Habit Tracker, but minimal</span>
+        <h2 class="h2">Track habit <span class="glow-text">growth, not streaks.</span></h2>
+        <p style="margin-top:20px;">Make any repeating task a habit by adding it to the Habit Tracker section.</p>
+        <p>All you'll see is how many times you hit that "Complete" button over how many times the task was scheduled. No streak tracking.</p>
+        <p>Each habit is unique. Not every habit needs a 10-day streak or a 99% completion rate to show how much you've grown and won.</p>
+        <p>For some habits, just 50% completion is a major step forward.</p>
+        <p class="growth-statement">View the percentage you stuck to the habit from the last 90, 60, or 30 days to <span class="glow-text">admire your growth</span>, no matter what the numbers actually are.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     DOWNLOAD / WAITLIST
+══════════════════════════════════════════════════ -->
+<section class="download-section" id="download">
+  <div class="container">
+    <h2 class="h1">Already know what <span class="glow-text">motivates</span> you to <span class="glow-text">commit</span>? Get on the waitlist.</h2>
+    <p class="sub" style="margin-top:16px;">Iconic currently needs beta testers to try it out. The first 30 signups get the Full Version* free forever.</p>
+
+    <!-- Email form placeholder -->
+    <div class="email-placeholder">
+      
+      <script type="text/javascript" src="https://form.jotform.com/jsform/261530414919052"></script>
+    </div>
+
+    <!-- App store buttons -->
+    <div class="store-row">
+      <div class="store-btn-wrap">
+        <span class="coming-soon-tip">Coming soon!</span>
+        <img src="file:///Users/christina/Documents/iconic reminders app/download on apple store.png" alt="Download on the App Store"/>
+      </div>
+      <div class="store-btn-wrap">
+        <span class="coming-soon-tip">Coming soon!</span>
+        <img src="file:///Users/christina/Documents/iconic reminders app/get it on google play button.png" alt="Get it on Google Play"/>
+      </div>
+    </div>
+
+    <div class="download-notes">
+      <p>*The Full Version gives you space for up to 30 unique task avatars to look at with your reminders + custom notification schedules.</p>
+      <p>The Free Version only has space for 3 avatars and your typical daily, weekly, and monthly notification repeating.</p>
+      <p>Everybody starts with a 30-day free trial of the Full Version.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">iconic</div>
+        <div class="tagline">Reminders with personality.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Why Iconic</a>
+        <a href="#">Themes</a>
+        <a href="feature-requests.html">Feature Requests</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">Reach out</a>
+        <a href="#">Press kit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Iconic. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT — THEMES + SWITCHER
+══════════════════════════════════════════════════ -->
+<script>
+
+const IMG  = 'file:///Users/christina/IconicReminders/assets/images';
+
+/* ── All 11 themes, ported from themes.ts ── */
+const THEMES = [
+  {
+    id: 'simple-light', name: 'Simple Light', isPaid: false,
+    headerFont: 'OpenSauceOne-Bold', secondaryFont: null,
+    bgSwatch: '#FFFFFF',
+    colors: { background:'#FFFFFF', cardSurface:'#FAFAFA', accent:'#7F52FF',
+      primaryText:'#0A0A0A', mutedText:'#6B7280', tabBar:'#FFFFFF',
+      completedCheck:'#10B981', divider:'rgba(10,10,10,0.08)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#6B7280',
+    swatches: ['#FAFAFA','#7F52FF','#0A0A0A','#6B7280'],
+    buttonGradient: ['#8E63FF','#7F52FF'],
+    notificationDots: { daily:'#10B981', weekly:'#3B82F6', monthly:'#F59E0B' },
+    bgImage: null, bgOverlay: null, bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'simple-dark', name: 'Simple Dark', isPaid: false,
+    headerFont: 'OpenSauceOne-Bold', secondaryFont: null,
+    bgSwatch: '#16161E',
+    colors: { background:'#16161E', cardSurface:'#1F1F2A', accent:'#AE92FF',
+      primaryText:'#E5E5EA', mutedText:'#6E6E80', tabBar:'#1F1F2A',
+      completedCheck:'#10B981', divider:'rgba(229,229,234,0.10)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#6E6E80',
+    swatches: ['#1F1F2A','#AE92FF','#E5E5EA','#6E6E80'],
+    buttonGradient: ['#9B75FF','#AE92FF'],
+    notificationDots: { daily:'#10B981', weekly:'#3B82F6', monthly:'#F59E0B' },
+    bgImage: null, bgOverlay: null, bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'iconic', name: 'Iconic', isPaid: false,
+    headerFont: 'ArchivoBlack-Regular', secondaryFont: 'OpenSauceOne-Black',
+    bgSwatch: '#210F3D',
+    colors: { background:'#210F3D', cardSurface:'#2D1655', accent:'#AE92FF',
+      primaryText:'#FFFFFF', mutedText:'#eae2fa', tabBar:'#2D1655',
+      completedCheck:'#4ADE80', divider:'rgba(255,255,255,0.12)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#9B75FF',
+    swatches: ['#2D1655','#AE92FF','#7F52FF','#FFFFFF'],
+    buttonGradient: ['#9B75FF','#7F52FF'],
+    notificationDots: { daily:'#4ADE80', weekly:'#9B75FF', monthly:'#FBBF24' },
+    bgImage: null, bgOverlay: null, bgGradient: null,
+    bgGlows: [
+      { color:'#7F52FF', opacity:0.40, size:600, top:-80,   right:-80,  blur:100 },
+      { color:'#9B75FF', opacity:0.18, size:380, top:260,   right:-40,  blur:80  },
+      { color:'#5B3FCC', opacity:0.22, size:460, bottom:-60, left:-50,  blur:90  },
+    ],
+  },
+  {
+    id: 'electric-nights', name: 'Electric Nights', isPaid: true,
+    headerFont: 'SpaceGrotesk-Bold', secondaryFont: 'SpaceMono',
+    bgSwatch: null,
+    colors: { background:'#0A1024', cardSurface:'#161E36', accent:'#5DEDC8',
+      primaryText:'#E5EAF7', mutedText:'#7B8AAB', tabBar:'#161E36',
+      completedCheck:'#10B981', divider:'rgba(93,237,200,0.25)', cardBorderColor: null },
+    accentText: '#0A1024', tertiaryColor: '#4D94FF',
+    swatches: ['#161E36','#5DEDC8','#4D94FF','#6B5BE0'],
+    buttonGradient: ['#5DEDC8','#2EC9A8'],
+    notificationDots: { daily:'#5DEDC8', weekly:'#4D94FF', monthly:'#FF6B35' },
+    bgImage: 'bg-electric-nights.png', bgOverlay: 'rgba(10,16,36,0.80)', bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'hit-the-trail', name: 'Hit the Trail', isPaid: true,
+    headerFont: 'Fraunces', secondaryFont: 'Karla-Bold',
+    bgSwatch: '#F0E5CE',
+    colors: { background:'#F4ECDC', cardSurface:'#FBF6EC', accent:'#5E7E4F',
+      primaryText:'#2C3328', mutedText:'#8A8270', tabBar:'#FBF6EC',
+      completedCheck:'#5E7E4F', divider:'rgba(94,126,79,0.30)', cardBorderColor:'rgba(44,51,40,0.10)' },
+    accentText: '#FBF6EC', tertiaryColor: '#C97B5B',
+    swatches: ['#FBF6EC','#5E7E4F','#C97B5B','#D9A24A'],
+    buttonGradient: ['#6A8F58','#4F7242'],
+    notificationDots: { daily:'#C97B5B', weekly:'#D9A24A', monthly:'#7BA6BD' },
+    bgImage: null, bgOverlay: null,
+    bgGradient: ['#F4ECDC','#EDE2CC'],
+    bgGlows: [
+      { color:'#D9A24A', opacity:0.30, size:480, top:-120,   right:-120, blur:110 },
+      { color:'#6A8F58', opacity:0.22, size:420, bottom:-80, left:-80,   blur:100 },
+    ],
+  },
+  {
+    id: 'high-score', name: 'High Score', isPaid: false,
+    headerFont: 'Oxanium-Bold', secondaryFont: null,
+    bgSwatch: null,
+    colors: { background:'#0A0820', cardSurface:'#15102E', accent:'#FF2E93',
+      primaryText:'#E5E5EA', mutedText:'#8B82B4', tabBar:'#15102E',
+      completedCheck:'#10B981', divider:'rgba(255,46,147,0.30)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#00E5FF',
+    swatches: ['#15102E','#FF2E93','#00E5FF','#B47BFF'],
+    buttonGradient: ['#FF2E93','#D81B7A'],
+    notificationDots: { daily:'#00E5FF', weekly:'#B47BFF', monthly:'#FF2E93' },
+    bgImage: 'bg-high-score-cropped.png', bgOverlay: 'rgba(10,8,32,0.80)', bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'productive', name: 'Productive', isPaid: true,
+    headerFont: 'SourceSerif4-Black', secondaryFont: 'IBMPlexSans-Medium',
+    bgSwatch: '#FFF8EA',
+    colors: { background:'#FFF8EA', cardSurface:'#FAF6EC', accent:'#FF9100',
+      primaryText:'#1A1410', mutedText:'#5A4F42', tabBar:'#FAF6EC',
+      completedCheck:'#10B981', divider:'rgba(26,20,16,0.15)',
+      cardBorderColor: 'rgba(26,20,16,0.10)' },
+    accentText: '#FFFFFF', tertiaryColor: '#2B2B8A',
+    swatches: ['#FAF6EC','#FF9100','#1A1410','#2B2B8A'],
+    buttonGradient: ['#FF9100','#FF6600'],
+    notificationDots: { daily:'#10B981', weekly:'#2B2B8A', monthly:'#FF9100' },
+    bgImage: null, bgOverlay: null, bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'dream-life', name: 'Dream Life', isPaid: true,
+    headerFont: 'PaytoneOne-Regular', secondaryFont: 'Fredoka-SemiBold',
+    bgSwatch: '#BBF6FF',
+    colors: { background:'#BBF6FF', cardSurface:'#FFE9F1', accent:'#FF0980',
+      primaryText:'#31041C', mutedText:'#878787', tabBar:'#FFB1CC',
+      completedCheck:'#00CBEA', divider:'rgba(255,255,255,0.40)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#00CBEA',
+    swatches: ['#FFE9F1','#FF0980','#31041C','#FF8D5A'],
+    buttonGradient: ['#FF0980','#FFD86B'],
+    notificationDots: { daily:'#FF8D5A', weekly:'#F5B500', monthly:'#5CD4BC' },
+    bgImage: null, bgOverlay: null,
+    bgGradient: ['#C8F9FF','#8FDFEE'],
+    bgGlows: [
+      { color:'#FFD86B', opacity:0.55, size:560, top:-200, right:-200 },
+      { color:'#FFE585', opacity:0.35, size:260, top:-80,  right:-80  },
+      { color:'#FF8D5A', opacity:0.14, size:400, bottom:-60, left:-80 },
+    ],
+  },
+  {
+    id: 'cute-fluffy', name: 'Cute & Fluffy', isPaid: false,
+    headerFont: 'Mochibun', secondaryFont: 'Quicksand-SemiBold',
+    bgSwatch: null,
+    colors: { background:'#FFEFEE', cardSurface:'#FFF8F5', accent:'#FF8B7A',
+      primaryText:'#5A4A47', mutedText:'#A08A87', tabBar:'#FFF8F5',
+      completedCheck:'#10B981', divider:'rgba(90,74,71,0.12)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#B8D4B8',
+    swatches: ['#FFF8F5','#FF8B7A','#B8D4B8','#5A4A47'],
+    buttonGradient: ['#FF9F8A','#FF7E6E'],
+    notificationDots: { daily:'#FF8B7A', weekly:'#B8D4B8', monthly:'#F4A261' },
+    bgImage: 'bg-cute-fluffy.png', bgOverlay: 'rgba(253,228,225,0.55)', bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'tropical-dreams', name: 'Escape', isPaid: true,
+    headerFont: 'Sora-Bold', secondaryFont: 'DMSans-Medium',
+    bgSwatch: null,
+    colors: { background:'#1F1530', cardSurface:'#2A1F40', accent:'#B595E0',
+      primaryText:'#F2E8F7', mutedText:'#9D8BB0', tabBar:'#2A1F40',
+      completedCheck:'#10B981', divider:'rgba(255,122,179,0.25)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#FF7AB3',
+    swatches: ['#2A1F40','#B595E0','#FF7AB3','#7DE0C5'],
+    buttonGradient: ['#C7A5F0','#9D75D4'],
+    notificationDots: { daily:'#7DE0C5', weekly:'#FF7AB3', monthly:'#B595E0' },
+    bgImage: 'bg-tropical-dreams.png', bgOverlay: 'rgba(31,21,48,0.80)', bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'iron-will', name: 'Iron Will', isPaid: true,
+    headerFont: 'Saira-Bold', secondaryFont: 'Oswald-SemiBold',
+    bgSwatch: '#0F0F0F',
+    colors: { background:'#0F0F0F', cardSurface:'#2A2A2A', accent:'#E63946',
+      primaryText:'#C8C8C8', mutedText:'#888888', tabBar:'#1F1F1F',
+      completedCheck:'#10B981', divider:'rgba(200,200,200,0.15)', cardBorderColor: null },
+    accentText: '#FFFFFF', tertiaryColor: '#C8C8C8',
+    swatches: ['#2A2A2A','#E63946','#C8C8C8','#FFC700'],
+    buttonGradient: ['#F04C5A','#C72A38'],
+    notificationDots: { daily:'#FFC700', weekly:'#C8C8C8', monthly:'#FF6A00' },
+    bgImage: null, bgOverlay: null, bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'vip-section', name: 'VIP Section', isPaid: true,
+    headerFont: 'Georgia, "Times New Roman", serif',
+    secondaryFont: '"Trebuchet MS", "Gill Sans", sans-serif',
+    bgSwatch: null,
+    colors: { background:'#0E0905', cardSurface:'#1F0F12', accent:'#C9A861',
+      primaryText:'#F5E8D0', mutedText:'#8B7E66', tabBar:'#1F0F12',
+      completedCheck:'#10B981', divider:'rgba(201,168,97,0.30)', cardBorderColor: null },
+    accentText: '#1F0F12', tertiaryColor: '#B87333',
+    swatches: ['#1F0F12','#C9A861','#B87333','#BEA790'],
+    buttonGradient: ['#E0BE74','#A38641'],
+    notificationDots: { daily:'#C9A861', weekly:'#10B981', monthly:'#B87333' },
+    bgImage: 'bg-vip-section.png', bgOverlay: 'rgba(14,9,5,0.80)', bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'cast-a-spell', name: 'Fairytale', isPaid: true,
+    headerFont: 'Cinzel-Bold', secondaryFont: 'CormorantGaramond-SemiBold',
+    bgSwatch: '#1A1530',
+    colors: { background:'#1A1530', cardSurface:'#261E40', accent:'#DFAE7B',
+      primaryText:'#EFEBF8', mutedText:'#8B82A8', tabBar:'#261E40',
+      completedCheck:'#10B981', divider:'rgba(223,174,123,0.25)', cardBorderColor: null },
+    accentText: '#1A1530', tertiaryColor: '#7559D9',
+    swatches: ['#261E40','#DFAE7B','#7559D9','#5BA89F'],
+    buttonGradient: ['#E8C18A','#C99858'],
+    notificationDots: { daily:'#5BA89F', weekly:'#7559D9', monthly:'#DFAE7B' },
+    bgImage: null, bgOverlay: null, bgGradient: null, bgGlows: null,
+  },
+];
+
+const LIGHT_BGS = new Set(['#FFFFFF','#FAFAFA','#FFF8F5','#FFF8EA','#FAF6EC','#BBF6FF','#FFEFEE','#F0E5CE','#F4ECDC','#FBF6EC','#EDE2CC']);
+const phoneIds  = ['phone-sched', 'phone-notif', 'phone-following', 'phone-habits'];
+
+/* ── Convert bgGlows array → stacked CSS radial-gradients ── */
+function buildGlowStyle(glows) {
+  const PW = 270, PH = 530;
+  return glows.map(g => {
+    const r = g.size / 2;
+    const cx = g.left  !== undefined ? g.left  + r : (PW - g.right)  - r;
+    const cy = g.top   !== undefined ? g.top   + r : (PH - g.bottom) - r;
+    const hex = g.color.replace('#','');
+    const rv = parseInt(hex.slice(0,2),16), gv = parseInt(hex.slice(2,4),16), bv = parseInt(hex.slice(4,6),16);
+    return `radial-gradient(circle ${r}px at ${Math.round(cx)}px ${Math.round(cy)}px, rgba(${rv},${gv},${bv},${g.opacity}) 0%, rgba(${rv},${gv},${bv},0) 100%)`;
+  }).join(', ');
+}
+
+/* ── Compute phone background CSS string ── */
+function phoneBgStyle(theme) {
+  if (theme.bgImage) {
+    return `url('${IMG}/${theme.bgImage}') center/cover`;
+  }
+  const base = theme.bgGradient
+    ? `linear-gradient(150deg, ${theme.bgGradient[0]}, ${theme.bgGradient[1]})`
+    : theme.colors.background;
+  if (theme.bgGlows && theme.bgGlows.length) {
+    return `${buildGlowStyle(theme.bgGlows)}, ${base}`;
+  }
+  return base;
+}
+
+/* ── Apply a theme to all phone frames ── */
+function applyTheme(theme) {
+  phoneIds.forEach(id => {
+    const phone = document.getElementById(id);
+    if (!phone) return;
+
+    // Background
+    phone.style.background = phoneBgStyle(theme);
+
+    // Overlay (for image themes)
+    const overlay = phone.querySelector('.bg-overlay');
+    if (overlay) {
+      overlay.style.background = theme.bgImage ? (theme.bgOverlay || 'transparent') : 'transparent';
+    }
+
+    // CSS variables
+    const c = theme.colors;
+    const set = (k, v) => phone.style.setProperty(k, v);
+    set('--ph-bg',          c.background);
+    set('--ph-card',        c.cardSurface);
+    set('--ph-accent',      c.accent);
+    set('--ph-text',        c.primaryText);
+    set('--ph-muted',       c.mutedText);
+    set('--ph-tabbar',      c.tabBar);
+    set('--ph-check',       c.completedCheck);
+    set('--ph-divider',     c.divider);
+    set('--ph-accent-text', theme.accentText || '#FFFFFF');
+    set('--ph-tertiary',    theme.tertiaryColor);
+    set('--ph-card-border', c.cardBorderColor || 'transparent');
+    set('--ph-dot-d',       theme.notificationDots.daily);
+    set('--ph-dot-w',       theme.notificationDots.weekly);
+    set('--ph-dot-m',       theme.notificationDots.monthly);
+    set('--ph-btn1',        theme.buttonGradient[0]);
+    set('--ph-btn2',        theme.buttonGradient[1]);
+    set('--ph-sw3',         theme.swatches[3]);
+
+    // Fonts — wrap in quotes if it's a generic font stack already
+    const hf = theme.headerFont.includes(',') ? theme.headerFont : `'${theme.headerFont}', system-ui, sans-serif`;
+    const sf = theme.secondaryFont
+      ? (theme.secondaryFont.includes(',') ? theme.secondaryFont : `'${theme.secondaryFont}', system-ui, sans-serif`)
+      : hf;
+    set('--ph-header-font', hf);
+    set('--ph-sec-font',    sf);
+  });
+
+  // Update habit metrics swatch bg (uses swatches[3])
+  document.querySelectorAll('.ph-habit-metrics').forEach(el => {
+    // Create a faded version of swatch[3]
+    const hex = theme.swatches[3];
+    const r = parseInt(hex.slice(1,3),16);
+    const g = parseInt(hex.slice(3,5),16);
+    const b = parseInt(hex.slice(5,7),16);
+    el.style.background = `rgba(${r},${g},${b},0.10)`;
+  });
+
+  // Update habit bar fills (accent color)
+  document.querySelectorAll('.ph-habit-bar-track').forEach(el => {
+    const hex = theme.swatches[3];
+    const r = parseInt(hex.slice(1,3),16);
+    const g = parseInt(hex.slice(3,5),16);
+    const b = parseInt(hex.slice(5,7),16);
+    el.style.background = `rgba(${r},${g},${b},0.20)`;
+  });
+
+  // Update active tile
+  document.querySelectorAll('.theme-tile').forEach(t => {
+    t.classList.toggle('active', t.dataset.id === theme.id);
+  });
+
+  // Update "Previewing theme" label
+  const previewName = document.getElementById('theme-preview-name');
+  if (previewName) previewName.textContent = theme.name;
+}
+
+/* ── Build the theme selector bar ── */
+function buildThemeSelector() {
+  const bar = document.getElementById('theme-bar');
+
+  THEMES.forEach(theme => {
+    const bgColor = theme.bgSwatch || theme.colors.background;
+    const isLight = c => LIGHT_BGS.has(c);
+
+    const tile = document.createElement('div');
+    tile.className = 'theme-tile';
+    tile.dataset.id = theme.id;
+
+    /* Swatch HTML */
+    const bgSwatchHtml = theme.bgImage
+      ? `<div class="swatch-bg" style="background:url('${IMG}/${theme.bgImage}') center/cover; overflow:hidden;"></div>`
+      : `<div class="swatch-bg${isLight(bgColor) ? ' swatch-light-border' : ''}" style="background:${bgColor}"></div>`;
+
+    const swatchRow2 = [theme.swatches[1], theme.swatches[2], theme.swatches[3]]
+      .map(c => `<div class="swatch-sm${isLight(c) ? ' swatch-light-border' : ''}" style="background:${c}"></div>`)
+      .join('');
+
+    const sw0Color = theme.swatches[0];
+
+    tile.innerHTML = `
+      <div class="tile-name" style="font-family:'${theme.headerFont}', system-ui;">${theme.name}</div>
+      <div class="swatch-block">
+        <div class="swatch-row">
+          ${bgSwatchHtml}
+          <div class="swatch-sm${isLight(sw0Color) ? ' swatch-light-border' : ''}" style="background:${sw0Color}"></div>
+        </div>
+        <div class="swatch-row">${swatchRow2}</div>
+      </div>
+    `;
+
+    tile.addEventListener('click', () => applyTheme(theme));
+    bar.appendChild(tile);
+  });
+}
+
+/* ── Init ── */
+buildThemeSelector();
+applyTheme(THEMES[0]); // Start on Simple Light
+
+/* ── Mobile: slide theme panel away when download section is reached ── */
+(function() {
+  const mq     = window.matchMedia('(max-width: 900px)');
+  const panel  = document.querySelector('.theme-panel');
+  const target = document.getElementById('download');
+  if (!panel || !target) return;
+
+  const observer = new IntersectionObserver(entries => {
+    if (!mq.matches) return;                       // desktop: do nothing
+    panel.classList.toggle('panel-hidden', entries[0].isIntersecting);
+  }, { threshold: 0 });
+
+  observer.observe(target);
+
+  // Re-show panel if user resizes back to mobile
+  mq.addEventListener('change', e => {
+    if (e.matches) panel.classList.remove('panel-hidden');
+  });
+})();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Feature Requests — iconic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sauce+One:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="file:///Users/christina/IconicReminders/assets/images/iconic%20logo%20enhanced%201.png"/>
+<style>
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --bg:           #210F3D;
+  --text:         #FFFFFF;
+  --accent:       #AE92FF;
+  --surface:      #2D1655;
+  --surface-2:    #3A1F6B;
+  --border:       rgba(255,255,255,0.12);
+  --text-muted:   rgba(255,255,255,0.72);
+  --text-faint:   rgba(255,255,255,0.45);
+
+  --radius-sm:    8px;
+  --radius-md:    12px;
+  --radius-lg:    20px;
+  --radius-btn:   15px;
+
+  --glow-sm:  0 0 10px rgba(127,82,255,0.55);
+  --glow-md:  0 0 18px rgba(127,82,255,0.55), 0 0 36px rgba(127,82,255,0.30);
+
+  --container: 860px;
+  --gutter:    1rem;
+}
+
+/* ============================================================
+   RESET + BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Open Sauce One', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { margin: 0; }
+p { margin: 0; }
+a { color: var(--text); }
+img { display: block; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+.h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(22px, 2.5vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+.label-eyebrow {
+  font-family: 'Open Sauce One', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  display: inline-block;
+}
+.glow-text {
+  text-shadow: 0 0 12px rgba(127,82,255,0.85), 0 0 28px rgba(127,82,255,0.55);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(33,15,61,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px var(--gutter);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.nav-logo img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  transition: color 180ms, text-shadow 180ms;
+}
+.nav-links a:hover { text-shadow: var(--glow-sm); }
+.nav-links a.active { color: var(--accent); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  font-family: 'Open Sauce One', sans-serif;
+  font-size: 15px;
+  border: 0;
+  cursor: pointer;
+  border-radius: var(--radius-btn);
+  padding: 11px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: box-shadow 180ms ease, transform 120ms ease;
+  text-decoration: none;
+}
+.btn-primary {
+  font-weight: 900;
+  background: #7F52FF;
+  color: #fff;
+}
+.btn-primary:hover { box-shadow: var(--glow-md); }
+.btn-primary:active { transform: translateY(1px); }
+
+/* ============================================================
+   PAGE SECTIONS
+   ============================================================ */
+.fr-polls-section {
+  padding: 64px 0 80px;
+}
+.fr-polls-section .page-sub {
+  font-size: 20px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-top: 20px;
+  max-width: 640px;
+}
+.fr-polls-section h1 {
+  margin-top: 8px;
+}
+
+.poll-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 48px;
+}
+.poll-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  min-height: 220px;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.fr-contact-section {
+  padding: 72px 0 96px;
+  border-top: 1px solid var(--border);
+}
+.fr-contact-section h2 {
+  margin-bottom: 20px;
+}
+.email-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.email-row-label {
+  font-size: 20px;
+  color: var(--text);
+}
+.email-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-btn);
+  padding: 9px 16px;
+  background: transparent;
+  box-shadow: var(--glow-sm);
+}
+.email-field span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+  font-family: 'Open Sauce One', sans-serif;
+  letter-spacing: 0.01em;
+}
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: opacity 150ms;
+}
+.copy-btn:hover { opacity: 0.7; }
+.copy-btn svg { width: 17px; height: 17px; display: block; }
+
+.contact-form-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  min-height: 300px;
+}
+
+/* ============================================================
+   COPY TOAST
+   ============================================================ */
+.copy-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Open Sauce One', sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms, transform 200ms;
+  box-shadow: var(--glow-sm);
+  white-space: nowrap;
+  z-index: 500;
+}
+.copy-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.footer-brand img {
+  height: 28px;
+  width: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.footer-brand .tagline {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+.footer-col h4 {
+  font-family: 'Open Sauce One', sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+.footer-col a {
+  display: block;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color 150ms, text-shadow 150ms;
+}
+.footer-col a:hover { color: var(--text); text-shadow: var(--glow-sm); }
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="iconic-website.html" class="nav-logo">
+      <img src="file:///Users/christina/IconicReminders/assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
+    </a>
+    <div class="nav-links">
+      <a href="feature-requests.html" class="active">Feature Requests</a>
+      <a href="iconic-website.html#download" class="btn btn-primary" style="font-size:14px; padding:9px 18px;">Download app</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     POLLS SECTION
+══════════════════════════════════════════════════ -->
+<section class="fr-polls-section">
+  <div class="container">
+    <span class="label-eyebrow">Feature Requests</span>
+    <h1 class="h1">What features should Iconic <span class="glow-text">add next?</span></h1>
+    <p class="page-sub">As one of the very few apps created by a user experience designer out there, user feedback is an Iconic priority. We'll only build it if you want it.</p>
+
+    <div class="poll-stack">
+      <div class="poll-wrap">
+        <iframe
+          id="JotFormIFrame-261527033488056"
+          title="Integration with Google Calendar"
+          onload="window.parent.scrollTo(0,0)"
+          allowtransparency="true"
+          allow="geolocation; microphone; camera; fullscreen; payment"
+          src="https://form.jotform.com/261527033488056"
+          frameborder="0"
+          style="min-width:100%;max-width:100%;height:539px;border:none;"
+          scrolling="no"
+        ></iframe>
+        <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261527033488056']", "https://form.jotform.com/")</script>
+      </div>
+      <div class="poll-wrap">
+        <script type="text/javascript" src="https://form.jotform.com/jsform/261528668661165"></script>
+      </div>
+      <div class="poll-wrap">
+        <script type="text/javascript" src="https://form.jotform.com/jsform/261527767861166"></script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CONTACT SECTION
+══════════════════════════════════════════════════ -->
+<section class="fr-contact-section">
+  <div class="container">
+    <h2 class="h2">Have an <span class="glow-text">idea you don't see</span> here?</h2>
+
+    <div class="email-row">
+      <span class="email-row-label">Just send over an email at:</span>
+      <div class="email-field">
+        <span id="admin-email">contact@iconictasks.com</span>
+        <button class="copy-btn" onclick="copyEmail()" aria-label="Copy email address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <script type="text/javascript" src="https://form.jotform.com/jsform/261528622136051"></script>
+    </div>
+  </div>
+</section>
+
+<!-- Copy toast -->
+<div class="copy-toast" id="copy-toast">✅ Email copied</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="file:///Users/christina/IconicReminders/assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
+        <div class="tagline">Made with care, not AI.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="iconic-website.html">Why Iconic</a>
+        <a href="iconic-website.html">Themes</a>
+        <a href="feature-requests.html">Feature Requests</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">Reach out</a>
+        <a href="#">Press kit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Iconic. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function copyEmail() {
+  const email = document.getElementById('admin-email').textContent.trim();
+  navigator.clipboard.writeText(email).then(() => {
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 2200);
+  });
+}
+</script>
+
+</body>
+</html>
