@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sauce+One:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="../assets/images/iconic%20logo%20enhanced%201.png"/>
+<link rel="icon" type="image/png" href="assets/images/iconic%20logo%20enhanced%201.png"/>
 <style>
 
 /* ============================================================
@@ -42,7 +42,7 @@
 html, body { margin: 0; padding: 0; }
 body {
   background-color: var(--bg);
-  background-image: url('../assets/images/iconic%20AmbientGlow.png');
+  background-image: url('assets/images/iconic%20AmbientGlow.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -335,6 +335,30 @@ img { display: block; }
   transition: color 150ms, text-shadow 150ms;
 }
 .footer-col a:hover { color: var(--text); text-shadow: var(--glow-sm); }
+.store-btn-wrap {
+  position: relative;
+  display: inline-block;
+}
+.store-btn-wrap .coming-soon-tip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms;
+  box-shadow: var(--glow-sm);
+  color: white;
+  z-index: 10;
+}
+.store-btn-wrap:hover .coming-soon-tip { opacity: 1; }
 .footer-bottom {
   margin-top: 40px;
   padding-top: 24px;
@@ -353,7 +377,7 @@ img { display: block; }
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="../assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
+      <img src="assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
     </a>
     <div class="nav-links">
       <a href="feature-requests.html" class="active">Feature Requests</a>
@@ -440,13 +464,13 @@ img { display: block; }
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <span class="store-btn-wrap"><span class="coming-soon-tip">Coming soon!</span><a href="#">Terms</a></span>
         </div>
       </div>
       <div class="footer-brand">
-        <img src="../assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
-        <div class="tagline">Task reminders with personality.</div>
+        <img src="assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
+        <div class="tagline">Remember what you're doing it for.</div>
       </div>
     </div>
     <div class="footer-bottom">

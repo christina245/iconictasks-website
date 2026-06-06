@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Privacy Policy — Iconic Tasks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sauce+One:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/images/iconic%20logo%20enhanced%201.png"/>
+<style>
+
+:root {
+  --bg:           #210F3D;
+  --text:         #FFFFFF;
+  --accent:       #AE92FF;
+  --surface:      #2D1655;
+  --surface-2:    #3A1F6B;
+  --border:       rgba(255,255,255,0.12);
+  --text-muted:   rgba(255,255,255,0.72);
+  --text-faint:   rgba(255,255,255,0.45);
+  --radius-sm:    8px;
+  --radius-btn:   15px;
+  --glow-sm:  0 0 10px rgba(127,82,255,0.55);
+  --glow-md:  0 0 18px rgba(127,82,255,0.55), 0 0 36px rgba(127,82,255,0.30);
+  --container: 860px;
+  --gutter:    1rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background-color: var(--bg);
+  background-image: url('assets/images/iconic%20AmbientGlow.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'Open Sauce One', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { margin: 0; }
+p { margin: 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { display: block; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Nav ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(33,15,61,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px var(--gutter);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 100px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  transition: color 180ms, text-shadow 180ms;
+}
+.nav-links a:hover { text-shadow: var(--glow-sm); }
+.btn {
+  font-family: 'Open Sauce One', sans-serif;
+  font-size: 15px;
+  border: 0;
+  cursor: pointer;
+  border-radius: var(--radius-btn);
+  padding: 11px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: box-shadow 180ms ease, transform 120ms ease;
+  text-decoration: none;
+}
+.btn-primary { font-weight: 900; background: #7F52FF; color: #fff; }
+.btn-primary:hover { box-shadow: var(--glow-md); text-decoration: none; }
+
+/* ── Page content ── */
+.privacy-section {
+  padding: 64px 0 96px;
+}
+.privacy-meta {
+  font-size: 13px;
+  color: var(--text-faint);
+  margin-top: 12px;
+  margin-bottom: 28px;
+}
+.privacy-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.privacy-block h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.privacy-block p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.privacy-block p:last-child { margin-bottom: 0; }
+.privacy-block strong { color: var(--text); font-weight: 700; }
+.privacy-block ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.privacy-block ul li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.privacy-divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: #210F3D;
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+}
+.site-footer .container { max-width: 1100px; }
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.footer-brand img { height: 100px; width: auto; display: block; margin-bottom: 10px; }
+.footer-brand .tagline { font-size: 13px; color: var(--text-faint); }
+.footer-cols { display: flex; gap: 100px; }
+.footer-col h4 {
+  font-family: 'Open Sauce One', sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+.footer-col a {
+  display: block;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color 150ms, text-shadow 150ms;
+}
+.footer-col a:hover { color: var(--text); text-shadow: var(--glow-sm); }
+.store-btn-wrap {
+  position: relative;
+  display: inline-block;
+}
+.store-btn-wrap .coming-soon-tip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms;
+  box-shadow: var(--glow-sm);
+  color: white;
+  z-index: 10;
+}
+.store-btn-wrap:hover .coming-soon-tip { opacity: 1; }
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
+    </a>
+    <div class="nav-links">
+      <a href="feature-requests.html">Feature Requests</a>
+      <a href="index.html#download" class="btn btn-primary" style="font-size:14px; padding:9px 18px;">Download app</a>
+    </div>
+  </div>
+</nav>
+
+<section class="privacy-section">
+  <div class="container">
+
+    <h1 style="font-family:'Archivo Black',sans-serif;font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-0.01em;font-weight:400;">Privacy Policy</h1>
+    <p class="privacy-meta">Last updated: June 2, 2026</p>
+    <p style="font-size:15px;color:var(--text-muted);line-height:1.75;margin-bottom:48px;">By using iconic, you agree to this Privacy Policy. If you have questions, contact us at contact@iconictasks.com.</p>
+
+    <div class="privacy-body">
+
+      <div class="privacy-block">
+        <h2>What we collect</h2>
+        <p><strong>Account information.</strong> When you register, you provide your email address, password, and phone number. If you choose to use the app's social features, you may also set a username and upload a profile photo. These are optional.</p>
+        <p><strong>Task data, if you choose to share it.</strong> Sharing each task is manually opted-in per task. Tasks you create — including their titles, descriptions, due dates, and any custom avatar photos you upload — are stored so the app can function. If you share tasks with followers, that shared content is transmitted through our servers.</p>
+        <p><strong>Usage information.</strong> We collect basic information about how you use the app (such as app version and device operating system) to help us fix bugs and improve the experience. We do not sell this data.</p>
+        <p><strong>Payment information.</strong> If you subscribe to a paid plan, payments are processed by RevenueCat. We do not store your credit card details. RevenueCat's privacy policy governs how payment data is handled.</p>
+        <p><strong>Email marketing.</strong> If you opt in to our newsletter, your email address is shared with our email marketing provider. You can unsubscribe at any time using the link in any email we send.</p>
+      </div>
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>Where your data lives</h2>
+        <p>Task data you create is stored on your device. When you choose to share a task with your followers, that task is transmitted to and stored on our servers so followers can view it. Tasks you keep private are not sent to our servers.</p>
+      </div>
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>How we use your data</h2>
+        <ul>
+          <li>To operate Iconic and deliver its features</li>
+          <li>To send you reminders and notifications you've set up</li>
+          <li>To let you share tasks with followers, if you choose to</li>
+          <li>To process your subscription via RevenueCat</li>
+          <li>To send you product updates and newsletters, if you've opted in</li>
+          <li>To diagnose issues and improve the app</li>
+        </ul>
+        <p style="margin-top:14px;">We do not sell your personal information to third parties.</p>
+      </div>
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>Social features</h2>
+        <p>Iconic includes optional social features. If you follow other users or allow others to follow you, tasks you choose to share will be visible to your followers. Your username and profile photo (if set) are visible to users you interact with.</p>
+        <p><strong>What stays private:</strong> Tasks you do not share remain on your device and are never sent to our servers or visible to other users.</p>
+        <p><strong>If we add commenting:</strong> Comments you post on shared tasks will be stored on our servers and visible to the task's author and their followers, depending on their privacy settings. You can delete your own comments at any time.</p>
+      </div>
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>Third-party services</h2>
+        <p>iconic integrates with the following services, each governed by their own privacy policy:</p>
+        <ul>
+          <li><strong>Apple Sign-In / Google Sign-In</strong> — used for account login if you choose this option</li>
+          <li><strong>RevenueCat</strong> — processes subscription payments</li>
+          <li><strong>EmailOctopus</strong> — sends newsletters to users who opt in</li>
+        </ul>
+      </div>
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>Your choices</h2>
+        <ul>
+          <li><strong>Update your account info</strong> at any time in Settings.</li>
+          <li><strong>Delete your account</strong> via Settings → Account. When you delete your account, your data is removed from our servers within 30 days. Locally stored data on your device is not affected and must be deleted by uninstalling the app.</li>
+          <li><strong>Opt out of marketing emails</strong> using the unsubscribe link in any email we send.</li>
+          <li><strong>Make a task private</strong> — simply don't share it. Unshared tasks never leave your device.</li>
+        </ul>
+      </div>
+
+      
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>International users</h2>
+        <p>Iconic is operated from California, United States. If you are using the app from another country, your information may be transferred to and processed in a jurisdiction with different privacy laws than your own. By using Iconic, you consent to this transfer.</p>
+        <p>If you are in the EU or UK, you have rights under the GDPR including the right to access, correct, or delete your personal data. To exercise these rights, contact us at contact@iconictasks.com.</p>
+      </div>
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>Changes to this policy</h2>
+        <p>If we make significant changes to this policy, we will notify you via email or an in-app notice before the changes take effect. The date at the top of this page reflects the most recent update.</p>
+      </div>
+
+      <hr class="privacy-divider"/>
+
+      <div class="privacy-block">
+        <h2>Contact</h2>
+        <p>Questions or requests regarding your privacy? Email us at contact@iconictasks.com</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="index.html#following">Following Feed</a>
+          <a href="index.html#habits">Habit Tracking</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy</a>
+          <span class="store-btn-wrap"><span class="coming-soon-tip">Coming soon!</span><a href="#">Terms</a></span>
+        </div>
+      </div>
+      <div class="footer-brand">
+        <img src="assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
+        <div class="tagline">Remember what you're doing it for.</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Iconic. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
