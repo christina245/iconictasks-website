@@ -355,6 +355,39 @@ img { display: block; }
   justify-content: center;
 }
 
+/* ── Alternating notification detail phones ── */
+.phone-notif-stack {
+  position: relative;
+  width: 270px;
+  height: 530px;
+  flex-shrink: 0;
+}
+.phone-notif-stack .phone-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.phone-notif-a {
+  animation: notif-fade-a 11s ease-in-out infinite;
+}
+.phone-notif-b {
+  animation: notif-fade-b 11s ease-in-out infinite;
+}
+@keyframes notif-fade-a {
+  0%   { opacity: 1; }
+  45%  { opacity: 1; }
+  50%  { opacity: 0; }
+  95%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes notif-fade-b {
+  0%   { opacity: 0; }
+  45%  { opacity: 0; }
+  50%  { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 /* ============================================================
    PHONE FRAME
    ============================================================ */
@@ -933,6 +966,33 @@ img { display: block; }
   gap: 5px;
   margin-bottom: 12px;
 }
+/* Time + repeat meta row (gym notification) */
+.ph-notif-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.ph-notif-meta-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ph-muted);
+}
+.ph-notif-meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ph-muted);
+  flex-shrink: 0;
+  margin: 0 1rem;
+}
+.ph-notif-meta-repeat {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--ph-dot-d);
+}
+.ph-notif-meta-repeat svg { width: 11px; height: 11px; display: block; }
+.ph-notif-meta-repeat span { font-size: 11px; font-weight: 600; }
 .ph-notif-due-icon { display: flex; align-items: center; color: #FF4400; }
 .ph-notif-due-icon svg { width: 12px; height: 12px; display: block; }
 .ph-notif-due-text {
@@ -1870,26 +1930,30 @@ img { display: block; }
         </div>
 
         <!-- Phone 2: Notification detail -->
-        <div class="phone-frame" id="phone-notif">
-          <div class="bg-overlay"></div>
-          <div class="phone-screen">
-            <div class="ph-status">
-              <span class="ph-status-time">9:41</span>
-              <span class="ph-status-icons">▌▌▌ ◈ ▮</span>
-            </div>
-            <div class="ph-notif-close">✕</div>
-            <div class="ph-notif-scroll">
-              <div class="ph-notif-avatar">
-                <img src="assets/images/placeholder-family.jpeg" alt=""/>
+        <!-- Alternating notification detail: stacked, crossfading every 3s -->
+        <div class="phone-notif-stack">
+
+          <!-- Phone A: Buy mom's birthday gift (family) -->
+          <div class="phone-frame phone-notif-a" id="phone-notif">
+            <div class="bg-overlay"></div>
+            <div class="phone-screen">
+              <div class="ph-status">
+                <span class="ph-status-time">9:41</span>
+                <span class="ph-status-icons">▌▌▌ ◈ ▮</span>
               </div>
-              <div class="ph-notif-avlabel">Family</div>
-              <div class="ph-notif-title">Buy mom's birthday gift</div>
-              <div class="ph-notif-due">
-                <span class="ph-notif-due-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                <span class="ph-notif-due-text">Was due May 13, 12:00 PM</span>
-              </div>
-              <div class="ph-notif-divider"></div>
-              <div class="ph-notif-body">Her birthday is Saturday. Need to order online or pick something up before then.
+              <div class="ph-notif-close">✕</div>
+              <div class="ph-notif-scroll">
+                <div class="ph-notif-avatar">
+                  <img src="assets/images/placeholder-family.jpeg" alt=""/>
+                </div>
+                <div class="ph-notif-avlabel">Family</div>
+                <div class="ph-notif-title">Buy mom's birthday gift</div>
+                <div class="ph-notif-due">
+                  <span class="ph-notif-due-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                  <span class="ph-notif-due-text">Was due May 13, 12:00 PM</span>
+                </div>
+                <div class="ph-notif-divider"></div>
+                <div class="ph-notif-body">Her birthday is Saturday. Need to order online or pick something up before then.
 
 Ideas:
 • Cookbook she mentioned
@@ -1897,25 +1961,72 @@ Ideas:
 • That ceramic plant pot she liked
 
 Budget: ~$50.</div>
-            </div>
-            <div class="ph-notif-actions">
-              <div class="ph-notif-action-row">
-                <div class="ph-notif-btn-primary">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-accent-text)"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>Mark as completed</span>
-                </div>
-                <div class="ph-notif-btn-secondary">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                  <span>Snooze</span>
-                </div>
               </div>
-              <div class="ph-notif-btn-tertiary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                <span>Reschedule</span>
+              <div class="ph-notif-actions">
+                <div class="ph-notif-action-row">
+                  <div class="ph-notif-btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-accent-text)"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Mark as completed</span>
+                  </div>
+                  <div class="ph-notif-btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    <span>Snooze</span>
+                  </div>
+                </div>
+                <div class="ph-notif-btn-tertiary">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  <span>Reschedule</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <!-- Phone B: Hit the gym (inspirational fictional character) -->
+          <div class="phone-frame phone-notif-b" id="phone-notif-2">
+            <div class="bg-overlay"></div>
+            <div class="phone-screen">
+              <div class="ph-status">
+                <span class="ph-status-time">8:02</span>
+                <span class="ph-status-icons">▌▌▌ ◈ ▮</span>
+              </div>
+              <div class="ph-notif-close">✕</div>
+              <div class="ph-notif-scroll">
+                <div class="ph-notif-avatar">
+                  <img src="assets/images/fictional%20character%202.png" alt=""/>
+                </div>
+                <div class="ph-notif-avlabel">Inspirational fictional character</div>
+                <div class="ph-notif-title">Hit the gym</div>
+                <div class="ph-notif-meta">
+                  <span class="ph-notif-meta-time">8:00 PM</span>
+                  <span class="ph-notif-meta-dot"></span>
+                  <span class="ph-notif-meta-repeat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                    <span>Daily</span>
+                  </span>
+                </div>
+                <div class="ph-notif-divider"></div>
+                <div class="ph-notif-body">A stronger body = back randomly hurts less.</div>
+              </div>
+              <div class="ph-notif-actions">
+                <div class="ph-notif-action-row">
+                  <div class="ph-notif-btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-accent-text)"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Mark as completed</span>
+                  </div>
+                  <div class="ph-notif-btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    <span>Snooze</span>
+                  </div>
+                </div>
+                <div class="ph-notif-btn-tertiary">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ph-muted)"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  <span>Reschedule</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /phone-notif-stack -->
 
       </div><!-- /phone-pair -->
       </div><!-- /phone-pair-wrap -->
@@ -2469,7 +2580,7 @@ const THEMES = [
 ];
 
 const LIGHT_BGS = new Set(['#FFFFFF','#FAFAFA','#FFF8F5','#FFF8EA','#FAF6EC','#BBF6FF','#FFEFEE','#F0E5CE','#F4ECDC','#FBF6EC','#EDE2CC']);
-const phoneIds  = ['phone-sched', 'phone-notif', 'phone-following', 'phone-habits'];
+const phoneIds  = ['phone-sched', 'phone-notif', 'phone-notif-2', 'phone-following', 'phone-habits'];
 
 /* ── Convert bgGlows array → stacked CSS radial-gradients ── */
 function buildGlowStyle(glows) {
