@@ -125,7 +125,7 @@ img { display: block; }
   align-items: center;
 }
 .nav-logo img {
-  height: 28px;
+  height: 100px;
   width: auto;
   display: block;
 }
@@ -289,18 +289,19 @@ img { display: block; }
    FOOTER
    ============================================================ */
 .site-footer {
-  background: var(--surface);
+  background: #210F3D;
   border-top: 1px solid var(--border);
   padding: 48px 0;
 }
 .footer-inner {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 32px;
 }
 .footer-brand img {
-  height: 28px;
+  height: 100px;
   width: auto;
   display: block;
   margin-bottom: 10px;
@@ -308,6 +309,13 @@ img { display: block; }
 .footer-brand .tagline {
   font-size: 13px;
   color: var(--text-faint);
+}
+.footer-cols {
+  display: flex;
+  gap: 100px;
+}
+.site-footer .container {
+  max-width: 1100px;
 }
 .footer-col h4 {
   font-family: 'Open Sauce One', sans-serif;
@@ -344,12 +352,12 @@ img { display: block; }
 ══════════════════════════════════════════════════ -->
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="iconic-website.html" class="nav-logo">
+    <a href="index.html" class="nav-logo">
       <img src="../assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
     </a>
     <div class="nav-links">
       <a href="feature-requests.html" class="active">Feature Requests</a>
-      <a href="iconic-website.html#download" class="btn btn-primary" style="font-size:14px; padding:9px 18px;">Download app</a>
+      <a href="index.html#download" class="btn btn-primary" style="font-size:14px; padding:9px 18px;">Download app</a>
     </div>
   </div>
 </nav>
@@ -424,25 +432,21 @@ img { display: block; }
 <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="index.html#following">Following Feed</a>
+          <a href="index.html#habits">Habit Tracking</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
       <div class="footer-brand">
         <img src="../assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
-        <div class="tagline">Made with care, not AI.</div>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="iconic-website.html">Why Iconic</a>
-        <a href="iconic-website.html">Themes</a>
-        <a href="feature-requests.html">Feature Requests</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#">Reach out</a>
-        <a href="#">Press kit</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
+        <div class="tagline">Task reminders with personality.</div>
       </div>
     </div>
     <div class="footer-bottom">

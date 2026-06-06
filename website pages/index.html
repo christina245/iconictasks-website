@@ -1492,23 +1492,23 @@ img { display: block; }
 .download-section h2 {
   font-size: clamp(26px, 4vw, 40px);
   max-width: 680px;
-  margin: 0 auto 16px;
+  margin: 0 auto 5px;
 }
 .download-section .sub {
   font-size: 17px;
   font-weight: 900;
   color: var(--text-muted);
   max-width: 480px;
-  margin: 0 auto 40px;
+  margin: 0 auto 10px;
   line-height: 1.5;
 }
 .email-placeholder {
   background: var(--surface);
   border: 1px dashed rgba(127,82,255,0.45);
   border-radius: var(--radius-lg);
-  padding: 36px 40px;
-  max-width: 520px;
-  margin: 0 auto 40px;
+  padding: 0px 40px;
+  max-width: 420px;
+  margin: 0 auto 10px;
   color: var(--text-faint);
   font-size: 14px;
   line-height: 1.6;
@@ -1525,11 +1525,11 @@ img { display: block; }
   display: flex;
   gap: 16px;
   justify-content: center;
-  margin-top: 32px;
+  margin-top: 10px;
 }
 .download-notes {
   max-width: 440px;
-  margin: 36px auto 0;
+  margin: 16px auto 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -1544,25 +1544,33 @@ img { display: block; }
    FOOTER
    ============================================================ */
 .site-footer {
-  background: var(--surface);
+  background: #210F3D;
   border-top: 1px solid var(--border);
   padding: 48px 0;
 }
 .footer-inner {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 32px;
 }
-.footer-brand .logo {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 28px;
-  text-shadow: var(--glow-sm);
-  margin-bottom: 8px;
+.footer-brand img {
+  height: 100px;
+  width: auto;
+  display: block;
+  margin-bottom: 10px;
 }
 .footer-brand .tagline {
   font-size: 13px;
   color: var(--text-faint);
+}
+.footer-cols {
+  display: flex;
+  gap: 100px;
+}
+.site-footer .container {
+  max-width: 1100px;
 }
 .footer-col h4 {
   font-family: 'Open Sauce One', sans-serif;
@@ -1931,7 +1939,7 @@ Budget: ~$50.</div>
 <!-- ══════════════════════════════════════════════
      SOCIAL / FOLLOWING SECTION
 ══════════════════════════════════════════════════ -->
-<section class="social-section">
+<section class="social-section" id="following">
   <div class="container">
     <div class="social-inner">
       <div class="social-text">
@@ -2071,7 +2079,7 @@ Budget: ~$50.</div>
 <!-- ══════════════════════════════════════════════
      HABIT TRACKER SECTION
 ══════════════════════════════════════════════════ -->
-<section class="habits-section">
+<section class="habits-section" id="habits">
   <div class="container">
     <div class="habits-inner">
 
@@ -2199,81 +2207,19 @@ Budget: ~$50.</div>
 
     <!-- Email form placeholder -->
     <!-- JotForm waitlist signup -->
-    <div class="email-placeholder">
-<script>window.enableEventObserver=true</script>
-<script>window.enableRenameUploadFile=false</script>
-<script>window.enableDateFieldSelectInputs=false</script>
-<script>window.CDN="https://cdn.jotfor.ms/"</script>
-<script>window.umdRootPath="https://cdn.jotfor.ms/s/umd/5fe2613910e/"</script>
-<script>window.staticRootPath="https://cdn.jotfor.ms/s/static/5fe2613910e/"</script>
-<script src="https://cdn.jotfor.ms/s/static/5fe2613910e/static/prototype.forms.js" type="text/javascript"></script>
-<script src="https://cdn.jotfor.ms/s/static/5fe2613910e/static/jotform.forms.js" type="text/javascript"></script>
-<script src="https://cdn.jotfor.ms/s/static/5fe2613910e/js/punycode-1.4.1.min.js" type="text/javascript" defer></script>
-<script src="https://cdn.jotfor.ms/s/umd/5fe2613910e/for-aria-notify-polyfill.js" type="text/javascript"></script>
-<script src="https://cdn.jotfor.ms/s/static/5fe2613910e/js/vendor/smoothscroll.min.js" type="text/javascript"></script>
-<script src="https://cdn.jotfor.ms/s/static/5fe2613910e/js/errorNavigation.js" type="text/javascript"></script>
-<script type="text/javascript">JotForm.newDefaultTheme=true;JotForm.extendsNewTheme=false;JotForm.singleProduct=false;JotForm.newPaymentUIForNewCreatedForms=false;JotForm.newPaymentUI=true;JotForm.originalLanguage="en";JotForm.isFormViewTrackingAllowed=true;JotForm.replaceTagTest=true;JotForm.activeRedirect="thanktext";JotForm.uploadServerURL="https://upload.jotform.com/upload";JotForm.clearFieldOnHide="disable";JotForm.submitError="jumpToFirstError";JotForm.isFullSource=true;JotForm.init(function(){if(window.JotForm&&JotForm.accessible)$('input_5').setAttribute('tabindex',0);});setTimeout(function(){JotForm.paymentExtrasOnTheFly([null,null,{"description":"","name":"q2_email0","qid":"2","subLabel":"example@example.com","text":"Email","type":"control_email"},null,{"name":"q4_submit","qid":"4","text":"Submit","type":"control_button"},{"name":"totallyOptional","qid":"5","subLabel":"A fictional character? Your favorite celebrity? Your dog looking at you with puppy eyes? 🥺","text":"Totally optional: what picture(s) will you be sticking to your task to motivate yourself?","type":"control_textbox"}]);},20);</script>
-<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/stylebuilder/static/form-common.css?v=ab813c6"/>
-<link id="custom-font" type="text/css" rel="stylesheet" href="//cdn.jotfor.ms/fonts/?family=Inter"/>
-<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=4.1.67116&themeRevisionID=65660e4b326633110492e01a"/>
-<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/s/static/5fe2613910e/css/styles/payment/payment_styles.css?4.1.67116"/>
-<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/s/static/5fe2613910e/css/styles/payment/payment_feature.css?4.1.67116"/>
-<form class="jotform-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://submit.jotform.com/submit/261530414919052" method="post" name="form_261530414919052" id="261530414919052" accept-charset="utf-8" autocomplete="on">
-  <input type="hidden" name="formID" value="261530414919052"/>
-  <input type="hidden" id="JWTContainer" value=""/>
-  <input type="hidden" id="cardinalOrderNumber" value=""/>
-  <input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1780460485716"/>
-  <input type="hidden" id="submitSource" name="submitSource" value="unknown"/>
-  <input type="hidden" id="buildDate" name="buildDate" value="1780460485716"/>
-  <input type="hidden" name="uploadServerUrl" value="https://upload.jotform.com/upload"/>
-  <input type="hidden" name="eventObserver" value="1"/>
-  <div role="main" class="form-all">
-    <ul class="form-section page-section" role="presentation">
-      <li class="form-line jf-required" data-type="control_email" id="id_2">
-        <label class="form-label form-label-top form-label-auto" id="label_2" for="input_2">Email<span class="form-required" aria-hidden="true">*</span></label>
-        <div id="cid_2" class="form-input-wide jf-required" data-layout="half">
-          <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="email" id="input_2" name="q2_q2_email0" class="form-textbox validate[required, Email]" data-defaultvalue="" autoComplete="section-input_2 email" style="width:310px" size="310" data-component="email" aria-labelledby="label_2 sublabel_input_2" required="" value=""/>
-            <label class="form-sub-label" for="input_2" id="sublabel_input_2" style="min-height:13px">example@example.com</label>
-          </span>
-        </div>
-      </li>
-      <li class="form-line" data-type="control_textbox" id="id_5">
-        <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5">Totally optional: what picture(s) will you be sticking to your task to motivate yourself?</label>
-        <div id="cid_5" class="form-input-wide" data-layout="half">
-          <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_5" name="q5_totallyOptional" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" maxLength="500" data-component="textbox" aria-labelledby="label_5 sublabel_input_5" value=""/>
-            <label class="form-sub-label" for="input_5" id="sublabel_input_5" style="min-height:13px">A fictional character? Your favorite celebrity? Your dog looking at you with puppy eyes? 🥺</label>
-          </span>
-        </div>
-      </li>
-      <li class="form-line" data-type="control_button" id="id_4">
-        <div id="cid_4" class="form-input-wide" data-layout="full">
-          <div data-align="auto" class="form-buttons-wrapper form-buttons-auto jsTest-button-wrapperField">
-            <button id="input_4" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField legacy-submit" data-component="button" data-content="">Submit</button>
-          </div>
-        </div>
-      </li>
-      <li style="display:none">Should be Empty: <input type="text" name="website" value=""/></li>
-    </ul>
-  </div>
-  <script>JotForm.showJotFormPowered="old_footer";JotForm.poweredByText="Powered by Jotform";</script>
-  <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="261530414919052"/>
-  <script type="text/javascript">var all_spc=document.querySelectorAll("form[id='261530414919052'] .si"+"mple"+"_spc");for(var i=0;i<all_spc.length;i++){all_spc[i].value="261530414919052-261530414919052";}</script>
-</form>
-<div id="sr-status-message" class="sr-only" role="status" aria-live="polite" style="font-size:0;"></div>
-    </div>
-
-    <!-- Re-assert site styles after JotForm stylesheet injection -->
-    <style>
-      html, body {
-        color: #FFFFFF !important;
-        font-weight: 100 !important;
-        font-family: 'Open Sauce One', system-ui, -apple-system, sans-serif !important;
-      }
-      h1, h2, h3, h4 { color: #FFFFFF !important; }
-      p { color: inherit; }
-    </style>
+    <iframe
+      id="JotFormIFrame-261530414919052"
+      title="Get notified — Iconic waitlist"
+      onload="window.parent.scrollTo(0,0)"
+      allowtransparency="true"
+      allow="geolocation; microphone; camera; fullscreen; payment"
+      src="https://form.jotform.com/261530414919052"
+      frameborder="0"
+      style="min-width:100%;max-width:100%;height:420px;border:none;"
+      scrolling="no"
+    ></iframe>
+    <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+    <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261530414919052']", "https://form.jotform.com/")</script>
 
     <!-- App store buttons -->
     <div class="store-row">
@@ -2301,25 +2247,21 @@ Budget: ~$50.</div>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#following">Following Feed</a>
+          <a href="#habits">Habit Tracking</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
       <div class="footer-brand">
-        <div class="logo">iconic</div>
-        <div class="tagline">Reminders with personality.</div>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#">Why Iconic</a>
-        <a href="#">Themes</a>
-        <a href="feature-requests.html">Feature Requests</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#">Reach out</a>
-        <a href="#">Press kit</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
+        <img src="../assets/images/iconic%20logo%20enhanced%201.png" alt="iconic"/>
+        <div class="tagline">Task reminders with personality.</div>
       </div>
     </div>
     <div class="footer-bottom">
