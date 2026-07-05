@@ -43,6 +43,8 @@
 @font-face { font-family:'OpenSauceOne-Black';         src:url('assets/fonts/OpenSauceOne-Black.ttf'); }
 @font-face { font-family:'Fraunces';                   src:url('assets/fonts/Fraunces-VariableFont_SOFT%2CWONK%2Copsz%2Cwght.ttf'); font-weight:600; }
 @font-face { font-family:'Karla-Bold';                 src:url('assets/fonts/Karla-VariableFont_wght.ttf'); font-weight:700; }
+@font-face { font-family:'Stoke-Regular';              src:url('assets/fonts/Stoke-Regular.ttf'); }
+@font-face { font-family:'CrimsonText-Bold';           src:url('assets/fonts/CrimsonText-Bold.ttf'); }
 
 /* ============================================================
    SITE DESIGN TOKENS
@@ -1864,8 +1866,6 @@ img { display: block; }
                   <div class="ph-month-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg></div>
                 </div>
                 <div class="ph-month-icons" style="color:var(--ph-muted)">
-                  <!-- ChartNoAxesCombined -->
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                   <!-- checkmark-circle-outline -->
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
                   <!-- notifications-outline (bell) -->
@@ -1884,6 +1884,21 @@ img { display: block; }
             </div>
             <!-- Reminder list -->
             <div class="ph-sched-list">
+              <!-- Untimed — Call Mom (no time bubble = displays at top) -->
+              <div class="ph-sched-item">
+                <div class="ph-card">
+                  <div class="ph-avatar-col"><img src="assets/images/placeholder-family.jpeg" alt=""/></div>
+                  <div class="ph-text-block">
+                    <span class="ph-char-name">Family</span>
+                    <span class="ph-title">Call Mom</span>
+                    <span class="ph-body-text">Check in about the reunion plans</span>
+                    <div class="ph-sched-following" style="color:var(--ph-tertiary)">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+                    </div>
+                  </div>
+                  <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
+                </div>
+              </div>
               <!-- 8 AM - completed -->
               <div class="ph-sched-item">
                 <div class="ph-time-col">
@@ -1900,50 +1915,51 @@ img { display: block; }
                     <span class="ph-title done">Morning walk</span>
                     <span class="ph-body-text">Take a 20-minute walk before breakfast</span>
                     <div class="ph-sched-following" style="color:var(--ph-tertiary)">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
                     </div>
                   </div>
                   <div class="ph-check-wrap"><div class="ph-check-filled"></div></div>
                 </div>
               </div>
-              <!-- 10 AM -->
+              <!-- 6 PM — Buy mom's birthday gift (due date pill + flag + avatar) -->
               <div class="ph-sched-item">
                 <div class="ph-time-col">
-                  <div class="ph-time-bubble">10 AM</div>
-                  <span class="ph-time-repeat" style="color:var(--ph-dot-w)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>
-                    <span class="ph-time-repeat-label">Weekly</span>
-                  </span>
+                  <div class="ph-time-bubble">6 PM</div>
                 </div>
-                <div class="ph-card">
-                  <div class="ph-avatar-col"><img src="assets/images/placeholder-family.jpeg" alt=""/></div>
-                  <div class="ph-text-block">
-                    <span class="ph-char-name">Family</span>
-                    <span class="ph-title">Call Mom</span>
-                    <span class="ph-body-text">Check in about the reunion plans</span>
-                    <div class="ph-sched-following" style="color:var(--ph-tertiary)">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
+                <div class="ph-card" style="flex-direction:column;">
+                  <div style="background:#FF4400;display:flex;align-items:center;gap:3px;padding:2px 7px 2px 5px;">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span style="font-size:7px;font-weight:600;color:#fff;flex:1;">Due May 26, 2026</span>
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15" stroke="#fff"/></svg>
                   </div>
-                  <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
+                  <div style="display:flex;align-items:stretch;flex:1;">
+                    <div class="ph-avatar-col"><img src="assets/images/placeholder-family.jpeg" alt=""/></div>
+                    <div class="ph-text-block">
+                      <span class="ph-char-name">Family</span>
+                      <span class="ph-title">Buy mom's birthday gift</span>
+                      <span class="ph-body-text">Her birthday is Saturday. Order online or pick up.</span>
+                      <div class="ph-sched-following" style="color:var(--ph-tertiary)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+                      </div>
+                    </div>
+                    <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
+                  </div>
                 </div>
               </div>
-              <!-- 7 PM -->
+              <!-- 7 PM — no avatar (shows app works without images) -->
               <div class="ph-sched-item">
                 <div class="ph-time-col">
                   <div class="ph-time-bubble">7 PM</div>
                 </div>
                 <div class="ph-card">
-                  <div class="ph-avatar-col"><img src="assets/images/placeholder-event.png" alt=""/></div>
-                  <div class="ph-text-block">
-                    <span class="ph-char-name">Chris's wedding</span>
+                  <div class="ph-text-block" style="padding-left:10px;">
                     <span class="ph-title">Anniversary dinner reservation</span>
                     <span class="ph-body-text">Reserve a table at Maison for 7 PM</span>
                   </div>
                   <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
                 </div>
               </div>
-              <!-- 8 PM -->
+              <!-- 8 PM — habit tracker icon -->
               <div class="ph-sched-item">
                 <div class="ph-time-col">
                   <div class="ph-time-bubble">8 PM</div>
@@ -1958,6 +1974,9 @@ img { display: block; }
                     <span class="ph-char-name">Inspirational fictional character</span>
                     <span class="ph-title">Hit the gym</span>
                     <span class="ph-body-text">A stronger body = back randomly hurts less.</span>
+                    <div class="ph-sched-following" style="color:var(--ph-tertiary)">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
                   </div>
                   <div class="ph-check-wrap"><div class="ph-check-empty"></div></div>
                 </div>
@@ -1981,8 +2000,8 @@ img { display: block; }
                 <span class="ph-nav-label">Following</span>
               </div>
               <div class="ph-nav-item inactive">
-                <span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg></span>
-                <span class="ph-nav-label">You</span>
+                <span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+                <span class="ph-nav-label">Settings</span>
               </div>
             </div>
           </div>
@@ -2009,7 +2028,7 @@ img { display: block; }
                 <div class="ph-notif-title">Buy mom's birthday gift</div>
                 <div class="ph-notif-due">
                   <span class="ph-notif-due-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                  <span class="ph-notif-due-text">Was due May 13, 12:00 PM</span>
+                  <span class="ph-notif-due-text">Due May 26, 2026</span>
                 </div>
                 <div class="ph-notif-divider"></div>
                 <div class="ph-notif-body">Her birthday is Saturday. Need to order online or pick something up before then.
@@ -2235,7 +2254,7 @@ Budget: ~$50.</div>
             <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="ph-nav-label">Scheduled</span></div>
             <div class="ph-nav-add-wrap"><div class="ph-nav-add-btn">+</div></div>
             <div class="ph-nav-item active"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="ph-nav-label">Following</span></div>
-            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg></span><span class="ph-nav-label">You</span></div>
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="ph-nav-label">Settings</span></div>
           </div>
         </div>
       </div>
@@ -2348,7 +2367,7 @@ Budget: ~$50.</div>
             <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="ph-nav-label">Scheduled</span></div>
             <div class="ph-nav-add-wrap"><div class="ph-nav-add-btn">+</div></div>
             <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="ph-nav-label">Following</span></div>
-            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg></span><span class="ph-nav-label">You</span></div>
+            <div class="ph-nav-item inactive"><span class="ph-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="ph-nav-label">Settings</span></div>
           </div>
         </div>
       </div>
@@ -2538,7 +2557,7 @@ const THEMES = [
     bgImage: 'bg-high-score-cropped.png', bgOverlay: 'rgba(10,8,32,0.80)', bgGradient: null, bgGlows: null,
   },
   {
-    id: 'productive', name: 'Productive', isPaid: true,
+    id: 'productive', name: 'Invested', isPaid: true,
     headerFont: 'SourceSerif4-Black', secondaryFont: 'IBMPlexSans-Medium',
     bgSwatch: '#FFF8EA',
     colors: { background:'#FFF8EA', cardSurface:'#FAF6EC', accent:'#FF9100',
@@ -2635,6 +2654,22 @@ const THEMES = [
     buttonGradient: ['#E8C18A','#C99858'],
     notificationDots: { daily:'#5BA89F', weekly:'#7559D9', monthly:'#DFAE7B' },
     bgImage: null, bgOverlay: null, bgGradient: null, bgGlows: null,
+  },
+  {
+    id: 'bewitched', name: 'Bewitched', isPaid: true,
+    headerFont: 'Stoke-Regular', secondaryFont: 'CrimsonText-Bold',
+    bgSwatch: '#170A0E',
+    colors: { background:'#170A0E', cardSurface:'#260D15', accent:'#E8A857',
+      primaryText:'#E0CFA8', mutedText:'#9A8E70', tabBar:'#3A1521',
+      completedCheck:'#E8A857', divider:'rgba(232,168,87,0.30)', cardBorderColor: null },
+    accentText: '#170A0E', tertiaryColor: '#8B1F2E',
+    swatches: ['#260D15','#E8A857','#8B1F2E','#E0CFA8'],
+    buttonGradient: ['#A2293A','#761B29'],
+    notificationDots: { daily:'#8B1F2E', weekly:'#C99550', monthly:'#3E5240' },
+    bgImage: null, bgOverlay: null, bgGradient: null,
+    bgGlows: [
+      { color:'#E8A857', opacity:0.28, size:700, bottom:-170, left:-155, blur:180 },
+    ],
   },
 ];
 
